@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/pettripFront/static/css/main.502741ab.css",
-    "main.js": "/pettripFront/static/js/main.105c397d.js",
+    "main.js": "/pettripFront/static/js/main.a2a9c86e.js",
     "static/media/nanum.ttf": "/pettripFront/static/media/nanum.39ee74ffa421d1be1553.ttf",
     "static/media/Cafe24SsurroundAir-v1.1.ttf": "/pettripFront/static/media/Cafe24SsurroundAir-v1.1.d8485cdd8e390bb99148.ttf",
     "static/media/Cafe24Ssurround-v2.0.ttf": "/pettripFront/static/media/Cafe24Ssurround-v2.0.70efcf8d91b99f6444fc.ttf",
@@ -29,10 +29,10 @@
     "static/media/HomePageFeature2.png": "/pettripFront/static/media/HomePageFeature2.5356665bce6e5b5e327b.png",
     "index.html": "/pettripFront/index.html",
     "main.502741ab.css.map": "/pettripFront/static/css/main.502741ab.css.map",
-    "main.105c397d.js.map": "/pettripFront/static/js/main.105c397d.js.map"
+    "main.a2a9c86e.js.map": "/pettripFront/static/js/main.a2a9c86e.js.map"
   },
   "entrypoints": [
     "static/css/main.502741ab.css",
-    "static/js/main.105c397d.js"
+    "static/js/main.a2a9c86e.js"
   ]
 }
