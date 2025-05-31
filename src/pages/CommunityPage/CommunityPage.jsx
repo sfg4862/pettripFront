@@ -22,7 +22,7 @@ const CommunityPage = () => {
       withCredentials: true,
       headers :{
         "Content-Type":"application/json",
-        "X-User-ID": `${sessionStorage.getItem('user_id')}`
+        "Authorization": `${sessionStorage.getItem('user_id')}`
       },
       params :{
         page : currentPage

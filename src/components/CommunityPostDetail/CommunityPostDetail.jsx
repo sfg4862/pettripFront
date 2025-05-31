@@ -21,7 +21,7 @@ const CommunityPostDetail = () => {
       withCredentials: true,
       headers: {
         "Content-Type":"application/json",
-        "X-User-ID": `${sessionStorage.getItem('user_id')}`
+        "Authorization": `${sessionStorage.getItem('user_id')}`
       }})
       .then(r => {
         setPost(r.data)
