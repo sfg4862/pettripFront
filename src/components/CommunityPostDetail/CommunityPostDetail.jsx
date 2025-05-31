@@ -176,8 +176,7 @@ const CommunityPostDetail = () => {
                           if (confirmed) {
                             axios.delete(`${host}/post/${post.id}`, {
                               headers: {
-                                "Content-Type": "application/json",
-                                "X-User-ID": sessionStorage.getItem('user_id')
+                                "Content-Type": "application/json"
                               },
                               withCredentials: true
                             })

@@ -20,8 +20,7 @@ const CommunityPostEdit = () => {
             const r = axios.get(`${host}/post/${postId}`,{
             withCredentials: true,
             headers: {
-                "Content-Type":"application/json",
-                "X-User-ID": `${sessionStorage.getItem('user_id')}`
+                "Content-Type":"application/json"
             }})
             .then(r => {
                 setPost(r.data)
@@ -189,8 +188,7 @@ const CommunityPostEdit = () => {
 
                                     axios.put(`${host}/post/${post.id}`, formData, {
                                         headers: {
-                                            "Content-Type": "multipart/form-data",
-                                            "X-User-ID": sessionStorage.getItem("user_id")
+                                            "Content-Type": "multipart/form-data"
                                         },
                                         withCredentials: true
                                     })
