@@ -1,5 +1,5 @@
 import { useState, createContext, useEffect } from "react";
-import { Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation, HashRouter } from "react-router-dom";
 import "./App.css";
 
 import HomePage from "./pages/HomePage/HomePage";
@@ -120,13 +120,14 @@ function App() {
 
   return (
     <AuthContext.Provider value={{ isLoggedIn, user, login, logout }}>
+      <HashRouter>
       <Routes>
         <Route
           path="/"
           element={
             <MainLayout>
               <HomePage />
-            </MainLayout>
+            </MainLayout> 
           }
         />
         <Route
@@ -320,6 +321,7 @@ function App() {
           }
         />
       </Routes>
+      </HashRouter>
     </AuthContext.Provider>
   );
 }
