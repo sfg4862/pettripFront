@@ -1,0 +1,293 @@
+.reserve-lookup-page {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 2rem 1rem;
+}
+
+.reserve-lookup-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.page-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  padding: 2rem 2rem 1rem 2rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.tab-container {
+  display: flex;
+  background-color: white;
+  padding: 1rem 2rem 0 2rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.tab-button {
+  flex: 1;
+  padding: 1rem 2rem;
+  border: none;
+  background-color: #f8f9fa;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 20px 20px 0 0;
+  margin-right: 0.5rem;
+  position: relative;
+}
+
+.tab-button.active {
+  background-color: #e6a73e;
+  color: white;
+  box-shadow: 0 -2px 8px rgba(230, 167, 62, 0.3);
+}
+
+.tab-button:hover:not(.active) {
+  background-color: #f0b961;
+  color: white;
+}
+
+.reservation-list {
+  padding: 2rem;
+  min-height: 400px;
+}
+
+.reservation-card {
+  border: 1px solid #e9ecef;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.reservation-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.reservation-card.canceled {
+  border-color: #f8d7da;
+  background-color: #fef8f8;
+}
+
+.reservation-date {
+  background-color: #f8f9fa;
+  color: #666;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.reservation-card.canceled .reservation-date {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+.reservation-content {
+  padding: 2rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.reservation-info {
+  display: flex;
+  gap: 1.5rem;
+  flex: 1;
+  align-items: center;
+}
+
+.sitter-image {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #e6a73e;
+  box-shadow: 0 2px 8px rgba(230, 167, 62, 0.2);
+}
+
+.reservation-details {
+  flex: 1;
+}
+
+.sitter-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #e6a73e;
+  margin: 0 0 1rem 0;
+}
+
+.reservation-time-info p {
+  margin: 0.3rem 0;
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.reservation-time-info strong {
+  color: #333;
+  font-weight: 600;
+}
+
+.cancel-reason {
+  color: #dc3545 !important;
+  font-weight: 600 !important;
+}
+
+.reservation-actions {
+  display: flex;
+  gap: 0.75rem;
+  min-width: 200px;
+  flex-shrink: 0;
+}
+
+.action-button {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.action-button.re-reserve {
+  background-color: #e6a73e;
+  color: white;
+}
+
+.action-button.re-reserve:hover {
+  background-color: #d4941f;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(230, 167, 62, 0.3);
+}
+
+.action-button.review {
+  background-color: #f0b961;
+  color: white;
+}
+
+.action-button.review:hover {
+  background-color: #eda645;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(240, 185, 97, 0.3);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: #999;
+}
+
+.empty-state p {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .reserve-lookup-page {
+    padding: 1rem 0.5rem;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+    padding: 1.5rem 1rem 1rem 1rem;
+  }
+
+  .tab-container {
+    padding: 1rem 1rem 0 1rem;
+  }
+
+  .tab-button {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    margin-right: 0.25rem;
+  }
+
+  .reservation-list {
+    padding: 1rem;
+  }
+
+  .reservation-content {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+    align-items: stretch;
+  }
+
+  .reservation-info {
+    align-items: flex-start;
+  }
+
+  .reservation-actions {
+    flex-direction: row;
+    justify-content: center;
+    min-width: auto;
+    width: 100%;
+  }
+
+  .action-button {
+    flex: 1;
+    max-width: 140px;
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .sitter-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .sitter-name {
+    font-size: 1.1rem;
+  }
+
+  .reservation-time-info p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .reserve-lookup-container {
+    margin: 0;
+    border-radius: 0;
+  }
+
+  .reservation-content {
+    padding: 1rem;
+  }
+
+  .reservation-date {
+    padding: 0.6rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .tab-button {
+    padding: 0.7rem 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .reservation-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .action-button {
+    width: 100%;
+    max-width: none;
+  }
+}

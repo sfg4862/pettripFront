@@ -1,0 +1,369 @@
+.profile-modify-page {
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 2rem 1rem;
+}
+
+.profile-modify-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.page-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  padding: 2rem 2rem 1rem 2rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.profile-modify-form {
+  padding: 2.5rem;
+}
+
+.info-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.info-table td {
+  padding: 1.2rem;
+  border: 1px solid #e9ecef;
+  vertical-align: middle;
+}
+
+.label-cell {
+  background-color: #f8f9fa;
+  width: 180px;
+  min-width: 180px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.input-cell {
+  background-color: white;
+  width: auto;
+  min-width: 200px;
+}
+
+.input-cell.full-width {
+  /* 전체 너비 사용 */
+}
+
+.button-cell {
+  background-color: white;
+  width: 140px;
+  min-width: 140px;
+  text-align: center;
+}
+
+.info-table input,
+.info-table select {
+  width: 100%;
+  max-width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+.info-table input:focus,
+.info-table select:focus {
+  outline: none;
+  border-color: #e6a73e;
+  box-shadow: 0 0 0 2px rgba(230, 167, 62, 0.2);
+}
+
+.info-table input:disabled,
+.info-table select:disabled {
+  background-color: #f8f9fa;
+  cursor: not-allowed;
+}
+
+.date-inputs {
+  display: flex;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.date-inputs input {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.address-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.zip-code-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+}
+
+.zip-code-row input {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.zip-search-btn {
+  padding: 0.8rem 1.2rem;
+  background-color: #e6a73e;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.zip-search-btn:hover {
+  background-color: #d4941f;
+}
+
+.phone-inputs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.phone-inputs select {
+  width: 80px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+.phone-inputs input {
+  flex: 1;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.phone-inputs span {
+  color: #666;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.additional-section {
+  margin-top: 3rem;
+}
+
+.section-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #333;
+  margin: 0 0 1.5rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #e6a73e;
+}
+
+.change-request-btn {
+  padding: 0.8rem 1.2rem;
+  background-color: #f0b961;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.change-request-btn:hover {
+  background-color: #eda645;
+}
+
+.message {
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.message.success {
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  padding-top: 2.5rem;
+  border-top: 1px solid #e9ecef;
+}
+
+.submit-button {
+  padding: 1.2rem 4rem;
+  background-color: #e6a73e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(230, 167, 62, 0.3);
+}
+
+.submit-button:hover:not(:disabled) {
+  background-color: #d4941f;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(230, 167, 62, 0.4);
+}
+
+.submit-button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .profile-modify-page {
+    padding: 1rem 0.5rem;
+  }
+
+  .page-title {
+    font-size: 1.5rem;
+    padding: 1.5rem 1rem 1rem 1rem;
+  }
+
+  .profile-modify-form {
+    padding: 1.5rem 1rem;
+  }
+
+  .profile-modify-container {
+    max-width: 100%;
+  }
+
+  .info-table,
+  .info-table tbody,
+  .info-table tr,
+  .info-table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .info-table tr {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+  }
+
+  .label-cell {
+    background-color: #e6a73e;
+    color: white;
+    font-weight: 600;
+    text-align: left;
+    width: 100%;
+    min-width: auto;
+    border-bottom: 1px solid #d4941f;
+  }
+
+  .input-cell,
+  .button-cell {
+    width: 100%;
+    min-width: auto;
+    border: none;
+  }
+
+  .date-inputs {
+    flex-direction: column;
+  }
+
+  .zip-code-row {
+    flex-direction: column;
+  }
+
+  .zip-search-btn {
+    width: 100%;
+  }
+
+  .phone-inputs {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .phone-inputs select,
+  .phone-inputs input {
+    width: 100%;
+  }
+
+  .phone-inputs span {
+    display: none;
+  }
+
+  .submit-button {
+    width: 100%;
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-modify-container {
+    margin: 0;
+    border-radius: 0;
+    max-width: 100%;
+  }
+
+  .page-title {
+    font-size: 1.3rem;
+    padding: 1rem;
+  }
+
+  .profile-modify-form {
+    padding: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+  }
+
+  .info-table td {
+    padding: 0.75rem;
+  }
+
+  .info-table input,
+  .info-table select {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+  }
+}

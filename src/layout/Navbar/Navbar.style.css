@@ -1,0 +1,279 @@
+/* 기존 navbar 스타일 */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  font-family: "Cafe24Ssurround";
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f8b73f;
+}
+
+.menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.menu-item {
+  color: #333;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.menu-item:hover {
+  color: #f8b73f;
+}
+
+.user-section {
+  display: flex;
+  align-items: center;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.user-info:hover {
+  background-color: #f5f5f5;
+}
+
+.user-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f8b73f;
+}
+
+.username {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.login-signup {
+  background-color: #f8b73f;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.login-signup:hover {
+  background-color: #e6a73e;
+}
+
+/* 사이드바 오버레이 */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+/* 사이드바 */
+.sidebar {
+  position: fixed;
+  font-family: "Cafe24Ssurround";
+  top: 0;
+  right: -400px;
+  width: 350px;
+  height: 100%;
+  background-color: #2c2c2c;
+  color: white;
+  transition: right 0.3s ease;
+  z-index: 1001;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.sidebar-open {
+  right: 0;
+}
+
+/* 사이드바 헤더 */
+.sidebar-header {
+  background-color: #e8e8e8;
+  color: #333;
+  padding: 2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid #444;
+}
+
+.sidebar-profile-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #f8b73f;
+}
+
+.sidebar-user-info {
+  flex: 1;
+}
+
+.sidebar-nickname {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+}
+
+/* 사이드바 메뉴 */
+.sidebar-menu {
+  flex: 1;
+  padding: 1rem 0;
+}
+
+.sidebar-menu-item {
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-bottom: 1px solid #444;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.sidebar-menu-item:hover {
+  background-color: #3c3c3c;
+}
+
+.sidebar-menu-item:last-child {
+  border-bottom: none;
+}
+
+/* SNS 섹션 */
+.sidebar-sns {
+  padding: 1.5rem;
+  border-top: 1px solid #444;
+}
+
+.sns-icons {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+.sns-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.sns-icon:hover {
+  opacity: 0.8;
+}
+
+.sns-icon.kakao {
+  background-image: url("../../images/Navbar/KakaoLogo.png");
+  background-color: transparent;
+}
+
+.sns-icon.instagram {
+  background-image: url("../../images/Navbar/InstaLogo.png");
+  background-color: transparent;
+}
+
+/* 로그아웃 섹션 */
+.sidebar-logout {
+  padding: 1.5rem;
+  border-top: 1px solid #444;
+}
+
+.logout-button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #f8b73f;
+  font-family: "Cafe24Ssurround";
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-button:hover {
+  background-color: #ffc65b;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .menu {
+    display: none;
+  }
+
+  .sidebar {
+    width: 300px;
+    right: -300px;
+  }
+
+  .sidebar-header {
+    padding: 1.5rem 1rem;
+  }
+
+  .sidebar-profile-image {
+    width: 60px;
+    height: 60px;
+  }
+
+  .sidebar-nickname {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 0.5rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .username {
+    display: none;
+  }
+
+  .sidebar {
+    width: 280px;
+    right: -280px;
+  }
+}

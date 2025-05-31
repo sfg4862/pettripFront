@@ -1,0 +1,145 @@
+@import "../../fonts/Font.style.css";
+
+.faq-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+}
+
+.faq-content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px 20px;
+  flex-grow: 1;
+}
+
+.faq-english-title {
+  font-family: "Cafe24Ssurround";
+  font-size: 30px;
+  color: #f9a455;
+}
+
+.faq-korean-title {
+  margin-top: -10px;
+  font-family: "Roboto";
+  font-size: 40px;
+  color: #333;
+  font-weight: 700;
+}
+
+.faq-divider {
+  margin-top: -10px;
+  height: 1px;
+  background-color: #f9a455;
+  width: 100%;
+}
+
+.faq-list {
+  width: 100%;
+}
+
+.faq-item {
+  width: 100%;
+  padding: 15px 0;
+  cursor: pointer;
+}
+
+.faq-question {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.faq-plus {
+  font-family: "Roboto";
+  font-size: 24px;
+  color: #f9a455;
+  margin-right: 15px;
+  transition: transform 0.3s ease;
+}
+
+.faq-item.open .faq-plus {
+  transform: rotate(45deg);
+}
+
+.faq-question h3 {
+  font-family: "Roboto";
+  font-size: 18px;
+  color: #6d5844;
+  font-weight: 500;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 0 0 40px;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 500px;
+  padding: 10px 0 20px 40px;
+}
+
+.faq-answer p {
+  font-family: "Roboto";
+  font-size: 16px;
+  color: #999898;
+  line-height: 1.6;
+}
+
+.faq-item-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #e0e0e0;
+  margin-top: 5px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .faq-content {
+    padding: 30px 15px;
+  }
+
+  .faq-english-title {
+    font-size: 24px;
+  }
+
+  .faq-korean-title {
+    font-size: 28px;
+  }
+
+  .faq-question h3 {
+    font-size: 16px;
+  }
+
+  .faq-answer p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-english-title {
+    font-size: 20px;
+  }
+
+  .faq-korean-title {
+    font-size: 24px;
+  }
+
+  .faq-plus {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+
+  .faq-item.open .faq-answer {
+    padding: 10px 0 15px 30px;
+  }
+
+  .faq-answer {
+    padding: 0 0 0 30px;
+  }
+}

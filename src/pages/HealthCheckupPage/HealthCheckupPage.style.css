@@ -1,0 +1,682 @@
+.healthcheckup-page {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "SB 어그로", sans-serif;
+  background-color: #ffffff;
+  overflow-x: hidden;
+}
+
+.healthcheckup-intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  width: 100%;
+}
+
+.healthcheckup-intro-content {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+}
+
+.healthcheckup-title-section {
+  flex: 1;
+  margin-right: 40px;
+}
+
+.healthcheckup-main-title {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #f8b73f;
+  line-height: 1.2;
+  margin-bottom: 40px;
+  text-align: left;
+}
+
+.healthcheckup-main-image {
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+
+.healthcheckup-upload-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.healthcheckup-upload-box {
+  width: 450px;
+  height: 350px;
+  background-color: #fff;
+  border-radius: 15px;
+  border: 2px solid #f8b73f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.healthcheckup-upload-content {
+  text-align: center;
+  z-index: 2;
+}
+
+.healthcheckup-upload-button {
+  background-color: #f8b73f;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.healthcheckup-upload-button:hover {
+  background-color: #e6a73e;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.healthcheckup-upload-text {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.healthcheckup-upload {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.healthcheckup-upload h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.healthcheckup-upload-instruction {
+  color: #666;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.healthcheckup-upload-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.healthcheckup-upload-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.healthcheckup-upload-field label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.healthcheckup-select,
+.healthcheckup-input {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-family: "SB 어그로", sans-serif;
+}
+
+.healthcheckup-select:focus,
+.healthcheckup-input:focus {
+  outline: none;
+  border-color: #f8b73f;
+}
+
+.healthcheckup-upload-zone {
+  min-height: 200px;
+  border: 2px dashed #ddd;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.healthcheckup-upload-zone.highlight {
+  border-color: #f8b73f;
+  background-color: rgba(248, 183, 63, 0.05);
+}
+
+.healthcheckup-dropzone-content {
+  text-align: center;
+  padding: 30px;
+}
+
+.healthcheckup-dropzone-content p {
+  color: #888;
+  margin-bottom: 15px;
+}
+
+.healthcheckup-upload-hint {
+  font-size: 0.85rem;
+  color: #aaa;
+  margin-top: 10px;
+}
+
+.healthcheckup-file-input {
+  display: none;
+}
+
+.healthcheckup-preview-container {
+  width: 100%;
+  position: relative;
+}
+
+.healthcheckup-preview-image {
+  max-width: 100%;
+  max-height: 300px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.healthcheckup-preview-remove {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.healthcheckup-analyze-button {
+  background-color: #f8b73f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  font-family: "SB 어그로", sans-serif;
+}
+
+.healthcheckup-analyze-button:hover {
+  background-color: #e6a73e;
+}
+
+.healthcheckup-analyze-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.healthcheckup-result-page {
+  width: 100%;
+  padding: 30px;
+  background-color: #fff;
+}
+
+.healthcheckup-result-layout {
+  display: flex;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: flex-start;
+}
+
+.healthcheckup-result-image-section {
+  flex: 1;
+  max-width: 500px;
+}
+
+.healthcheckup-uploaded-image {
+  width: 100%;
+  height: auto;
+  max-height: 700px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.healthcheckup-result-content {
+  flex: 1.5;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.healthcheckup-result-header {
+  margin-bottom: 20px;
+}
+
+.healthcheckup-result-title {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.healthcheckup-result-subtitle {
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.healthcheckup-highlight {
+  color: #f8b73f;
+  font-weight: bold;
+}
+
+.healthcheckup-divider {
+  border: none;
+  border-top: 2px solid #f0f0f0;
+  margin: 15px 0;
+}
+
+.healthcheckup-result-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.healthcheckup-severity-section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.healthcheckup-severity-title {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.healthcheckup-severity-info {
+  margin-bottom: 15px;
+}
+
+.healthcheckup-severity-label {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.healthcheckup-current-mood {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.healthcheckup-selected-mood {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 30px;
+  border-radius: 15px;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  min-width: 120px;
+}
+
+.healthcheckup-selected-emoji {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.healthcheckup-selected-label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.healthcheckup-mood-indicators {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+.healthcheckup-mood-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  border: 2px solid transparent;
+  min-width: 70px;
+}
+
+.healthcheckup-mood-indicator.active {
+  background-color: #f8b73f;
+  color: white;
+  border: 2px solid #f8b73f;
+}
+
+.healthcheckup-mood-indicator.disabled {
+  cursor: default;
+}
+
+.healthcheckup-mood-indicator:not(.disabled) {
+  cursor: pointer;
+}
+
+.healthcheckup-mood-indicator:not(.disabled):hover {
+  background-color: #f8b73f;
+  color: white;
+}
+
+.healthcheckup-mood-emoji {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.healthcheckup-mood-label {
+  font-size: 0.8rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+.healthcheckup-severity-progress {
+  width: 100%;
+  height: 8px;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.healthcheckup-severity-bar {
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.healthcheckup-severity-note {
+  font-size: 0.9rem;
+  color: #666;
+  font-style: italic;
+}
+
+.healthcheckup-record-section {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.healthcheckup-record-title {
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.healthcheckup-record-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.healthcheckup-record-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.healthcheckup-record-label {
+  font-weight: bold;
+  color: #333;
+}
+
+.healthcheckup-record-value {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.healthcheckup-tag {
+  padding: 4px 12px;
+  border-radius: 15px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: white;
+}
+
+.healthcheckup-tag.good {
+  background-color: #4caf50;
+}
+
+.healthcheckup-tag.bad {
+  background-color: #e74c3c;
+}
+
+.healthcheckup-record-time {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+.healthcheckup-detailed-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.healthcheckup-info-card {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.healthcheckup-info-title {
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1rem;
+}
+
+.healthcheckup-info-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.healthcheckup-info-item {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.healthcheckup-bullet {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.healthcheckup-bullet.symptom {
+  background-color: #e74c3c;
+}
+
+.healthcheckup-bullet.cause {
+  background-color: #f39c12;
+}
+
+.healthcheckup-bullet.treatment {
+  background-color: #27ae60;
+}
+
+.healthcheckup-action-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.healthcheckup-primary-button {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "SB 어그로", sans-serif;
+  background-color: #f8b73f;
+  color: white;
+}
+
+.healthcheckup-primary-button:hover {
+  background-color: #e6a73e;
+}
+
+.healthcheckup-secondary-button {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "SB 어그로", sans-serif;
+  background-color: #6c757d;
+  color: white;
+}
+
+.healthcheckup-secondary-button:hover {
+  background-color: #5a6268;
+}
+
+@media (max-width: 1200px) {
+  .healthcheckup-main-title {
+    font-size: 3.5rem;
+  }
+
+  .healthcheckup-upload-box {
+    width: 400px;
+    height: 300px;
+  }
+
+  .healthcheckup-result-layout {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 992px) {
+  .healthcheckup-intro-content {
+    flex-direction: column;
+    gap: 40px;
+    padding: 20px;
+  }
+
+  .healthcheckup-title-section {
+    margin-right: 0;
+    text-align: center;
+  }
+
+  .healthcheckup-main-title {
+    text-align: center;
+  }
+
+  .healthcheckup-main-image {
+    max-width: 80%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  .healthcheckup-upload-box {
+    width: 100%;
+    max-width: 450px;
+  }
+
+  .healthcheckup-result-layout {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .healthcheckup-result-image-section {
+    max-width: 100%;
+  }
+
+  .healthcheckup-uploaded-image {
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .healthcheckup-main-title {
+    font-size: 2.8rem;
+  }
+
+  .healthcheckup-mood-indicators {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .healthcheckup-mood-indicator {
+    flex: 1;
+    min-width: 70px;
+  }
+
+  .healthcheckup-detailed-info {
+    grid-template-columns: 1fr;
+  }
+
+  .healthcheckup-action-buttons {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .healthcheckup-main-title {
+    font-size: 2.2rem;
+  }
+
+  .healthcheckup-upload-button {
+    font-size: 1rem;
+    padding: 12px 24px;
+  }
+
+  .healthcheckup-result-page {
+    padding: 15px;
+  }
+}

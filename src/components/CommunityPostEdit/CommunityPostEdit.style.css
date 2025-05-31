@@ -1,0 +1,44 @@
+@import "../../fonts/Font.style.css";
+
+.post-detail-page {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  font-family: "SB Agro", sans-serif;
+  background-color: #e3e3e3;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.post-text-content {
+  font-family: "SB Agro", sans-serif;
+}
+
+.post-edit-title {
+    font-family: "SB Agro", sans-serif;
+    width: 100%;
+    font-size: 1.8rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.post-edit-textarea {
+    font-family: "SB Agro", sans-serif;
+    width: 100%;
+    height: 200px;
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+.post-detail-content.blurred {
+    filter: blur(3px);
+}

@@ -1,0 +1,111 @@
+/* 동화 또박 */
+@font-face {
+  font-family: "Fairytale_ddobak";
+  src: url("/src/fonts/nanum.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 여기어때 잘난체 고딕 */
+@font-face {
+  font-family: "JalnanGothic";
+  src: url("/src/fonts/JalnanGothicTTF.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Roboto Regular */
+@font-face {
+  font-family: "Roboto";
+  src: url("/src/fonts/Roboto.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Roboto Italic */
+@font-face {
+  font-family: "Roboto-Italic";
+  src: url("/src/fonts/Roboto-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
+/* Cafe24 Ssurround */
+@font-face {
+  font-family: "Cafe24Ssurround";
+  src: url("/src/fonts/Cafe24Ssurround-v2.0.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Cafe24 Ssurround Air */
+@font-face {
+  font-family: "Cafe24SsurroundAir";
+  src: url("/src/fonts/Cafe24SsurroundAir-v1.1.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* NanumSquareRound Regular */
+@font-face {
+  font-family: "NanumSquareRound";
+  src: url("/src/fonts/NanumSquareRoundR.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* NanumSquareRound Bold */
+@font-face {
+  font-family: "NanumSquareRound";
+  src: url("/src/fonts/NanumSquareRoundB.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* NanumSquareRound Light */
+@font-face {
+  font-family: "NanumSquareRound";
+  src: url("/src/fonts/NanumSquareRoundL.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* NanumSquareRound Extra Bold */
+@font-face {
+  font-family: "NanumSquareRound";
+  src: url("/src/fonts/NanumSquareRoundEB.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* SB 어그로 Medium */
+@font-face {
+  font-family: "SB Agro";
+  src: url("/src/fonts/SB Agro M.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* SB 어그로 Bold */
+@font-face {
+  font-family: "SB Agro";
+  src: url("/src/fonts/SB Agro B.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+/* SB 어그로 Light */
+@font-face {
+  font-family: "SB Agro";
+  src: url("/src/fonts/SB Agro L.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* OdorMeanChey-Regular*/
+@font-face {
+  font-family: "OdorMeanChey";
+  src: url("/src/fonts/OdorMeanChey-Regular.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}

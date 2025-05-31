@@ -1,0 +1,47 @@
+.footer {
+  background-color: #606060;
+  border-top: 3px solid #000000;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footer .text-wrapper {
+  color: #ffffff;
+  font-family: "SB 어그로", sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.footer .element-all-rights {
+  color: #ffffff;
+  font-family: "SB 어그로", sans-serif;
+  font-size: 14px;
+  text-align: left;
+  max-width: 100%;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px;
+    align-items: center;
+  }
+
+  .footer .text-wrapper {
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .footer .element-all-rights {
+    font-size: 12px;
+    text-align: center;
+  }
+}

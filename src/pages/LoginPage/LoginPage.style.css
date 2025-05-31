@@ -1,0 +1,224 @@
+@import "../../fonts/Font.style.css";
+
+.login-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.login-container {
+  max-width: 500px;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 60px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.container-header {
+  width: 100%;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.back-button {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.back-link {
+  font-size: 30px;
+  color: #000000;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.logo-text {
+  font-size: 50px;
+  font-weight: bold;
+  font-family: "OdorMeanChey", sans-serif;
+  letter-spacing: 1px;
+}
+
+.logo-pet {
+  color: #c35b27;
+}
+
+.logo-trip {
+  color: #000000;
+}
+
+.login-form {
+  width: 100%;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form-group label {
+  font-family: "SB 어그로", sans-serif;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+.form-input {
+  font-family: "SB 어그로", sans-serif;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #c35b27;
+  border-radius: 4px;
+  font-size: 16px;
+  color: #333;
+  box-sizing: border-box;
+}
+
+.form-input::placeholder {
+  color: #aaa;
+}
+
+.signup-link-small {
+  text-align: left;
+  margin-top: 5px;
+  font-family: "SB 어그로", sans-serif;
+  font-size: 14px;
+}
+
+.signup-link-small a {
+  color: #c35b27;
+  text-decoration: none;
+}
+
+.signup-link-small a:hover {
+  text-decoration: underline;
+}
+
+.login-button {
+  padding: 14px 0;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 20px;
+  font-family: "SB 어그로", sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: opacity 0.3s;
+  background-color: #c35b27;
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto 40px;
+  display: block;
+}
+
+.login-button:hover {
+  opacity: 0.9;
+}
+
+.social-login-container {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.social-login-button {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: "SB 어그로", sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.3s;
+}
+
+.social-login-button:hover {
+  opacity: 0.9;
+}
+
+.social-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.kakao {
+  background-color: #fee500;
+  color: #000000;
+}
+
+.naver {
+  background-color: #03c75a;
+  color: #ffffff;
+}
+
+.google {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+.apple {
+  background-color: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+  .login-container {
+    padding: 15px;
+  }
+
+  .logo-text {
+    font-size: 28px;
+  }
+
+  .login-button {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    width: 95%;
+    padding: 10px;
+  }
+
+  .form-input {
+    padding: 10px;
+  }
+
+  .login-button,
+  .social-login-button {
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .social-login-button {
+    font-size: 14px;
+  }
+}

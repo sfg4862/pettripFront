@@ -1,0 +1,196 @@
+@import "../../fonts/Font.style.css";
+
+.searchpage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../../images/SearchImage/SearchBackground.png");
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  font-family: "SB 어그로", sans-serif;
+}
+
+.searchpage-content {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.searchpage-title-container {
+  text-align: center;
+  margin-bottom: 40px;
+  width: 100%;
+}
+
+.searchpage-title {
+  font-size: 2.5rem;
+  font-family: "SB 어그로 B", "SB 어그로", sans-serif;
+  font-weight: bold;
+  line-height: 1.3;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  margin: 0;
+}
+
+.searchpage-search-container {
+  width: 100%;
+  max-width: 550px;
+  position: relative;
+}
+
+.searchpage-search-box {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.searchpage-search-input {
+  display: flex;
+  align-items: center;
+  padding: 12px 15px;
+}
+
+.searchpage-search-icon {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.searchpage-search-input input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 8px 0;
+  font-size: 0.95rem;
+  font-family: "SB 어그로", sans-serif;
+}
+
+.searchpage-search-button {
+  background-color: #f8b73f;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-family: "SB 어그로", sans-serif;
+  cursor: pointer;
+}
+
+.searchpage-recent-container {
+  margin-top: 10px;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 10;
+  position: absolute;
+}
+
+.searchpage-recent-title {
+  font-size: 0.9rem;
+  padding: 15px;
+  margin: 0;
+  color: #333;
+  border-bottom: 1px solid #eee;
+}
+
+.searchpage-recent-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.searchpage-recent-item {
+  padding: 12px 15px;
+  cursor: pointer;
+  border-bottom: 1px dashed #eee;
+  display: flex;
+  align-items: center;
+}
+
+.searchpage-recent-item:last-child {
+  border-bottom: none;
+}
+
+.searchpage-recent-item:hover {
+  background-color: #f5f5f5;
+}
+
+.searchpage-clock-icon {
+  color: #999;
+  margin-right: 8px;
+  font-size: 0.85rem;
+}
+
+.searchpage-type-container {
+  margin-top: 30px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(5px);
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.searchpage-type-selector {
+  display: flex;
+  gap: 40px;
+}
+
+.searchpage-type-button {
+  background: none;
+  border: none;
+  font-family: "SB 어그로", sans-serif;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  color: rgba(255, 255, 255, 0.8);
+  transition: all 0.3s ease;
+}
+
+.searchpage-type-button.active {
+  color: #f8b73f;
+}
+
+.searchpage-type-icon {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.searchpage-type-text {
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.searchpage-type-underline {
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #f8b73f;
+}
+
+@media (max-width: 768px) {
+  .searchpage-title {
+    font-size: 2rem;
+  }
+
+  .searchpage-search-container {
+    width: 90%;
+  }
+
+  .searchpage-type-selector {
+    gap: 20px;
+  }
+}
