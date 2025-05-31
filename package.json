@@ -1,7 +1,7 @@
 {
   "name": "pettrip",
   "version": "0.1.0",
-  "homepage": "https://sfg4862.github.io/pettripFront/",
+  "homepage": "https://pettrip.o-r.kr",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
