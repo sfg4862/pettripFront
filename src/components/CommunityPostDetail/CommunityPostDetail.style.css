@@ -108,7 +108,18 @@
 .post-text-content {
   padding: 40px;
   border-top: 1px solid #eee;
-  border-bottom: 1px solid #eee;
+}
+
+.post-detail-title {
+  font-size: 2em;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .post-content-text {
@@ -124,7 +135,6 @@
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 25px;
-  border-top: 1px solid #eee;
   padding-top: 25px;
 }
 

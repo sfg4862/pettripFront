@@ -168,6 +168,10 @@ const CommunityPostDetail = () => {
             <span className="author-name">{post.author}</span>
           </div>
 
+          <div className="post-detail-title">
+            {post.title}
+          </div>
+
           <div className="post-image-container">
             {post.imageUrl ? (
               <img
