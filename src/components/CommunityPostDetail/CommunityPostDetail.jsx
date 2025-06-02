@@ -90,14 +90,14 @@ const CommunityPostDetail = () => {
               "Content-Type":"application/json"
             }})
           .then(r2 => {
-            alert("좋아요가 취소되었습니다.");
+            alert("공감이 취소되었습니다.");
             navigate(0)
           })
           .catch(e =>{
             alert("잘못된 요청입니다.");
           })}
         else {
-          alert("좋아요 등록이 완료되었습니다!");
+          alert("공감이 완료되었습니다!");
           navigate(0)
         }
       })
@@ -167,7 +167,7 @@ const CommunityPostDetail = () => {
             </div>
             <span className="author-name">{post.author}</span>
           </div>
-
+          
           <div className="post-detail-title">
             {post.title}
           </div>
@@ -308,11 +308,11 @@ const CommunityPostDetail = () => {
               </button>
               {post.isLiked == 1 ?(
               <button className="action-button like" onClick={handleLike}>
-                좋아요 {post.likes}
+                공감 {post.likes}
               </button>
               ) : (
               <button className="action-button none-like" onClick={handleLike}>
-                좋아요 {post.likes}
+                공감 {post.likes}
               </button>
               )}
             </div>

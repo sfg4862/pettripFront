@@ -193,11 +193,16 @@
   border-radius: 30px;
 }
 
-.action-button.like:hover,
+.action-button.none-like:hover,
 .action-button.delete:hover {
   color: #ff0000;
   border: 1px solid #ff0000;
   background-color: #ffffff;
+}
+
+.action-button.like:hover {
+  color: #666;
+  border: 1px solid #666;
 }
 
 @import "../../fonts/Font.style.css";
@@ -223,6 +228,7 @@
   border: 1px solid #eee;
   background-color: white;
 }
+
 
 
 
