@@ -68,39 +68,44 @@ const CommunityPostDetail = () => {
   };
 
   const handleLike = () => {
-    const likeRequestBody = {
-      user_id : sessionStorage.getItem('user_id'),
-      post_id : post.id
+    if(!sessionStorage.getItem('user_id')){
+      alert("로그인을 먼저 진행해 주세요!");
     }
+    else{
 
-    const r = axios.post(`${host}/like`,likeRequestBody,{
-      header : {
-        "Content-Type":"application/json"
-      }}
-    )
-    .then(r => {
-      if(r.data.isLiked == 1){
-        const r2 = axios.post(`${host}/unlike`,likeRequestBody,{
-          header : {
-            "Content-Type":"application/json"
-          }})
-        .then(r2 => {
-          alert("좋아요가 취소되었습니다.");
-          navigate(0)
-        })
-        .catch(e =>{
-          alert("잘못된 요청입니다.");
-        })}
-      else {
-        alert("좋아요 등록이 완료되었습니다!");
-        navigate(0)
+      const likeRequestBody = {
+        user_id : sessionStorage.getItem('user_id'),
+        post_id : post.id
       }
-    })
-    .catch(e => {
-      alert("잘못된 요청입니다.");
-      navigate(0)
-    })
 
+      const r = axios.post(`${host}/like`,likeRequestBody,{
+        header : {
+          "Content-Type":"application/json"
+        }}
+      )
+      .then(r => {
+        if(r.data.isLiked == 1){
+          const r2 = axios.post(`${host}/unlike`,likeRequestBody,{
+            header : {
+              "Content-Type":"application/json"
+            }})
+          .then(r2 => {
+            alert("좋아요가 취소되었습니다.");
+            navigate(0)
+          })
+          .catch(e =>{
+            alert("잘못된 요청입니다.");
+          })}
+        else {
+          alert("좋아요 등록이 완료되었습니다!");
+          navigate(0)
+        }
+      })
+      .catch(e => {
+        alert("잘못된 요청입니다.");
+        navigate(0)
+      })
+    }
   };
 
   const handleAddComment = () => {
@@ -199,14 +204,14 @@ const CommunityPostDetail = () => {
                   <hr style={{border: '1px solid #eee' }} />
                   <div key={comment.id} className='comment-item'>
                     <div className="comment-author-info">
-                      <div className="author-avatar">
+                      <div className="post-author-avatar">
                         {comment.user_profil ? (
                         <img src={`${host}/${comment.user_profil}`} alt={post.author} />
                       ) : (
                         <img src={url.defaultProfileUrl} alt={post.author} />
                       )}
                       </div>
-                      <span className="author-name">{comment.user_name}</span>
+                      <span className="post-author-name">{comment.user_name}</span>
                     </div>
                     <div className="comment-content">{comment.content}</div>
 
@@ -297,7 +302,7 @@ const CommunityPostDetail = () => {
               <button className="action-button share" onClick={handleShare}>
                 공유하기
               </button>
-              {post.isLiked === 1 ?(
+              {post.isLiked == 1 ?(
               <button className="action-button like" onClick={handleLike}>
                 좋아요 {post.likes}
               </button>

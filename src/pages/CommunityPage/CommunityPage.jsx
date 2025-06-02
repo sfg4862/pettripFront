@@ -255,7 +255,7 @@ const CommunityPage = () => {
                     <span className="comment-count">{post.commentsCount}</span>
                   </div>
                   <div className="like-section">
-                    {post.isLiked === 1 ? (
+                    {post.isLiked == 1 ? (
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
