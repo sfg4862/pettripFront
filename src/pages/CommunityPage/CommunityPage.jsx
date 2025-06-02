@@ -230,15 +230,15 @@ const CommunityPage = () => {
                   <p className="post-date">{formatDate(post.date)}</p>
                 </div>
                 <div className="post-footer">
-                  <div className="author-info">
-                    <div className="author-avatar">
+                  <div className="post-author-info">
+                    <div className="post-author-avatar">
                       {post.profileImg ? (
                       <img src={`${host}/${post.profileImg}`} alt={post.author} />
                     ) : (
                       <img src={url.defaultProfileUrl} alt={post.author} />
                     )}
                     </div>
-                    <span className="author-name">{post.author}</span>
+                    <span className="post-author-name">{post.author}</span>
                   </div>
                   <div className="comment-section">
                     <svg 
