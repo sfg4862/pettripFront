@@ -3,12 +3,22 @@ import "./HealthCheckupPage.style.css";
 import host from "../../host.js";
 import healthcheckupImage from "../../images/HealthCheckupPage/healthcheckupimage.png";
 
+const LoadingSpinner = () => (
+  <div className="loading-overlay">
+    <div className="loading-spinner">
+      <div className="spinner"></div>
+      <p className="loading-text">AI가 이미지를 분석 중입니다...</p>
+    </div>
+  </div>
+);
+
 function HealthCheckupPage() {
   const [activeTab, setActiveTab] = useState("intro");
   const [petType, setPetType] = useState("");
   const [symptom, setSymptom] = useState("");
   const [uploadedImage, setUploadedImage] = useState(null);
   const [selectedMood, setSelectedMood] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
   const [diagnosisData, setDiagnosisData] = useState({
     diagnosisName: "결막염",
     description:
@@ -59,7 +69,8 @@ function HealthCheckupPage() {
   const diagnosisExamples = [
     {
       diagnosisName: "결막염",
-      description: "결막염은 결막에 염증이 생긴 상태로, 눈곱 증가와 충혈 등의 증상이 나타납니다.",
+      description:
+        "결막염은 결막에 염증이 생긴 상태로, 눈곱 증가와 충혈 등의 증상이 나타납니다.",
       defaultSeverity: 2,
       detailedResult: {
         symptoms: ["눈곱 증가", "결막 충혈", "눈물 분비", "눈 가려움"],
@@ -82,14 +93,20 @@ function HealthCheckupPage() {
       description: "백내장은 수정체가 혼탁해져 시야가 흐려지는 질환입니다.",
       defaultSeverity: 2,
       detailedResult: {
-        symptoms: ["시야 흐림", "야간 시력 저하", "빛 번짐", "색상 구분 어려움"],
+        symptoms: [
+          "시야 흐림",
+          "야간 시력 저하",
+          "빛 번짐",
+          "색상 구분 어려움",
+        ],
         causes: ["노화", "유전", "당뇨병", "외상"],
         treatment: ["정기 검진", "수술", "영양 관리", "보조기구 사용"],
       },
     },
     {
       diagnosisName: "비궤양성각막질환",
-      description: "비궤양성 각막질환은 각막에 상처 없이 염증이나 혼탁이 생기는 상태입니다.",
+      description:
+        "비궤양성 각막질환은 각막에 상처 없이 염증이나 혼탁이 생기는 상태입니다.",
       defaultSeverity: 3,
       detailedResult: {
         symptoms: ["눈물", "결막 충혈", "시력 저하", "가벼운 통증"],
@@ -99,7 +116,8 @@ function HealthCheckupPage() {
     },
     {
       diagnosisName: "색소침착성각막염",
-      description: "각막에 검은 색소가 침착되어 시야에 영향을 줄 수 있는 질환입니다.",
+      description:
+        "각막에 검은 색소가 침착되어 시야에 영향을 줄 수 있는 질환입니다.",
       defaultSeverity: 4,
       detailedResult: {
         symptoms: ["시야 흐림", "눈 흑변", "시력 감소", "빛 민감"],
@@ -109,7 +127,8 @@ function HealthCheckupPage() {
     },
     {
       diagnosisName: "안검내반증",
-      description: "눈꺼풀이 안쪽으로 말려 속눈썹이 각막을 자극하는 질환입니다.",
+      description:
+        "눈꺼풀이 안쪽으로 말려 속눈썹이 각막을 자극하는 질환입니다.",
       defaultSeverity: 4,
       detailedResult: {
         symptoms: ["눈 가려움", "눈물", "각막 자극", "결막염 동반"],
@@ -119,7 +138,8 @@ function HealthCheckupPage() {
     },
     {
       diagnosisName: "안검염",
-      description: "눈꺼풀 가장자리에 염증이 생기는 질환으로 가려움과 통증이 동반됩니다.",
+      description:
+        "눈꺼풀 가장자리에 염증이 생기는 질환으로 가려움과 통증이 동반됩니다.",
       defaultSeverity: 3,
       detailedResult: {
         symptoms: ["눈꺼풀 부종", "통증", "분비물", "피부 껍질"],
@@ -129,7 +149,8 @@ function HealthCheckupPage() {
     },
     {
       diagnosisName: "안검종양",
-      description: "눈꺼풀에 발생하는 종양으로 양성 및 악성 모두 존재할 수 있습니다.",
+      description:
+        "눈꺼풀에 발생하는 종양으로 양성 및 악성 모두 존재할 수 있습니다.",
       defaultSeverity: 5,
       detailedResult: {
         symptoms: ["덩어리 발생", "출혈", "눈꺼풀 변형", "통증"],
@@ -139,7 +160,8 @@ function HealthCheckupPage() {
     },
     {
       diagnosisName: "유루증",
-      description: "눈물이 과도하게 흐르는 증상으로 눈 밑 피부염을 유발할 수 있습니다.",
+      description:
+        "눈물이 과도하게 흐르는 증상으로 눈 밑 피부염을 유발할 수 있습니다.",
       defaultSeverity: 2,
       detailedResult: {
         symptoms: ["눈물 흘림", "눈 주변 착색", "피부 자극", "냄새"],
@@ -149,12 +171,18 @@ function HealthCheckupPage() {
     },
     {
       diagnosisName: "핵경화",
-      description: "노령 동물에게 흔히 나타나는 수정체의 단단해지는 자연스러운 변화입니다.",
+      description:
+        "노령 동물에게 흔히 나타나는 수정체의 단단해지는 자연스러운 변화입니다.",
       defaultSeverity: 1,
       detailedResult: {
         symptoms: ["시야 흐림", "푸르스름한 눈동자", "빛 번짐", "노안"],
         causes: ["노화"],
-        treatment: ["정기 검진", "영양 관리", "수술은 필요 없음", "생활 환경 조절"],
+        treatment: [
+          "정기 검진",
+          "영양 관리",
+          "수술은 필요 없음",
+          "생활 환경 조절",
+        ],
       },
     },
     {
@@ -164,7 +192,12 @@ function HealthCheckupPage() {
       detailedResult: {
         symptoms: ["정상 시야", "통증 없음", "충혈 없음", "분비물 없음"],
         causes: ["건강한 눈 상태"],
-        treatment: ["정기 검진 유지", "청결 유지", "균형 잡힌 식사", "환경 관리"],
+        treatment: [
+          "정기 검진 유지",
+          "청결 유지",
+          "균형 잡힌 식사",
+          "환경 관리",
+        ],
       },
     },
   ];
@@ -299,6 +332,8 @@ function HealthCheckupPage() {
 
   const handleAnalyzeClick = async () => {
     if (uploadedImage && petType && symptom) {
+      setIsLoading(true);
+
       try {
         const formData = new FormData();
         const response = await fetch(uploadedImage);
@@ -317,27 +352,27 @@ function HealthCheckupPage() {
         const diagnosisName = result?.[0]?.predicted_class;
 
         const matched = diagnosisExamples.find(
-            (item) => item.diagnosisName === diagnosisName
+          (item) => item.diagnosisName === diagnosisName
         );
 
         if (matched) {
           const now = new Date();
           const timeString = `오후 ${now.getHours()}:${now
-              .getMinutes()
-              .toString()
-              .padStart(2, "0")}`;
+            .getMinutes()
+            .toString()
+            .padStart(2, "0")}`;
           const severity = matched.defaultSeverity;
           const severityLabel =
-              moodOptions.find((m) => m.value === severity)?.label || "보통";
+            moodOptions.find((m) => m.value === severity)?.label || "보통";
 
           setDiagnosisData({
             diagnosisName: matched.diagnosisName,
             description: matched.description,
             severity: severityLabel,
             recommendations:
-                severity >= 4
-                    ? "빠른 시일 내에 동물 병원 방문을 권장드립니다."
-                    : "정기적인 관찰이 필요합니다.",
+              severity >= 4
+                ? "빠른 시일 내에 동물 병원 방문을 권장드립니다."
+                : "정기적인 관찰이 필요합니다.",
             records: [
               {
                 name: matched.diagnosisName,
@@ -349,10 +384,12 @@ function HealthCheckupPage() {
                 name: petType || "반려동물",
                 status: severityLabel,
                 time: `오후 ${now.getHours()}:${(
-                    now.getMinutes() + Math.floor(Math.random() * 10) + 1
+                  now.getMinutes() +
+                  Math.floor(Math.random() * 10) +
+                  1
                 )
-                    .toString()
-                    .padStart(2, "0")}`,
+                  .toString()
+                  .padStart(2, "0")}`,
                 severity: severity,
               },
             ],
@@ -366,12 +403,17 @@ function HealthCheckupPage() {
       } catch (err) {
         console.error(err);
         alert("분석 도중 오류가 발생했습니다.");
+      } finally {
+        setIsLoading(false);
       }
     }
   };
 
   return (
     <div className="healthcheckup-page">
+      {/* 로딩 스피너 오버레이 */}
+      {isLoading && <LoadingSpinner />}
+
       {activeTab === "intro" && (
         <div className="healthcheckup-intro">
           <div className="healthcheckup-intro-content">
@@ -398,7 +440,7 @@ function HealthCheckupPage() {
                     AI 진단하러 가기
                   </button>
                   <p className="healthcheckup-upload-text">
-                    사진으로 쉽게 진단하세요! 
+                    사진으로 쉽게 진단하세요!
                   </p>
                 </div>
               </div>
@@ -421,6 +463,7 @@ function HealthCheckupPage() {
                 value={petType}
                 onChange={(e) => setPetType(e.target.value)}
                 className="healthcheckup-select"
+                disabled={isLoading}
               >
                 <option value="">선택해주세요</option>
                 <option value="강아지">강아지</option>
@@ -439,6 +482,7 @@ function HealthCheckupPage() {
                 onChange={(e) => setSymptom(e.target.value)}
                 placeholder="ex) 강아지가 기운이 없어요"
                 className="healthcheckup-input"
+                disabled={isLoading}
               />
             </div>
 
@@ -455,6 +499,7 @@ function HealthCheckupPage() {
                     <button
                       className="healthcheckup-preview-remove"
                       onClick={() => setUploadedImage(null)}
+                      disabled={isLoading}
                     >
                       ✕
                     </button>
@@ -465,6 +510,7 @@ function HealthCheckupPage() {
                     <button
                       className="healthcheckup-upload-button"
                       onClick={handleButtonClick}
+                      disabled={isLoading}
                     >
                       이미지 선택
                     </button>
@@ -476,6 +522,7 @@ function HealthCheckupPage() {
                   onChange={handleFileChange}
                   ref={fileInputRef}
                   className="healthcheckup-file-input"
+                  disabled={isLoading}
                 />
               </div>
             </div>
@@ -483,9 +530,9 @@ function HealthCheckupPage() {
             <button
               className="healthcheckup-analyze-button"
               onClick={handleAnalyzeClick}
-              disabled={!petType || !symptom || !uploadedImage}
+              disabled={!petType || !symptom || !uploadedImage || isLoading}
             >
-              분석하기
+              {isLoading ? "분석 중..." : "분석하기"}
             </button>
           </div>
         </div>
@@ -521,8 +568,6 @@ function HealthCheckupPage() {
                 <p>{diagnosisData.description}</p>
               </div>
 
-              
-
               <div className="healthcheckup-record-section">
                 <h3 className="healthcheckup-record-title">진단 기록</h3>
                 <div className="healthcheckup-record-fields">
@@ -532,7 +577,6 @@ function HealthCheckupPage() {
                         {record.name}
                       </span>
                       <div className="healthcheckup-record-value">
-                        
                         <span className="healthcheckup-record-time">
                           {record.time}
                         </span>

@@ -2,7 +2,7 @@
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
-  font-family: "SB 어그로", sans-serif;
+  font-family: "SB Agro", sans-serif;
   background-color: #e3e3e3;
   min-height: calc(100vh - 120px);
   display: flex;
@@ -161,7 +161,7 @@
 .action-button {
   background: none;
   border: none;
-  font-family: "SB 어그로", sans-serif;
+  font-family: "SB Agro", sans-serif;
   font-size: 16px;
   color: #666;
   cursor: pointer;
@@ -176,15 +176,18 @@
 }
 
 .action-button.delete {
-  color: #888;
+  color: #d84a4a;
   font-weight: 500;
   padding: 10px 20px;
   border: 1px solid #d84a4a;
   border-radius: 30px;
 }
 
+.action-button.like:hover,
 .action-button.delete:hover {
-  background-color: #cf5151;
+  color: #ff0000;
+  border: 1px solid #ff0000;
+  background-color: #ffffff;
 }
 
 @import "../../fonts/Font.style.css";
@@ -230,7 +233,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "SB 어그로", sans-serif;
+  font-family: "SB Agro", sans-serif;
   font-size: 18px;
   color: #666;
 }
@@ -241,7 +244,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "SB 어그로", sans-serif;
+  font-family: "SB Agro", sans-serif;
   font-size: 18px;
   color: #e74c3c;
 }
@@ -311,3 +314,108 @@
     font-size: 13px;
   }
 }
+
+.comment-author-info{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 15%;
+    font-family: "SB Agro", sans-serif;
+
+}
+
+.author-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #F9A455;
+}
+
+
+.author-name {
+  font-size: 15px;
+  color: #555;
+}
+
+.comment-item {
+  display: flex;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+
+.comment-content{
+  padding-top : 6px;
+  padding-left : 10px;
+}
+
+.comment-area{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.comment-button{
+  margin-left: auto;
+}
+
+.comment-delete {
+  font-family: "SB Agro", sans-serif;
+  background-color: #FFFFFF;
+  color: rgb(255, 130, 130);
+  border: 1px solid ;
+  font-size: 0.8rem;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  width: 60px;
+  height: 100%;
+}
+
+.comment-delete:hover{
+  background-color: rgb(255, 185, 185);
+  color: #ff0000;
+  border: 2px solid #ff0000;
+}
+
+.comment-input{
+  display: flex;
+}
+
+.comment-input input{
+  font-family: "SB Agro", sans-serif;
+  flex: 1;
+  height: 50px;
+  border: 1px solid #ffcd9d;
+  border-radius: 5px;
+}
+
+.comment-add-area{
+  padding-top: 50px;
+}
+
+.comment-input button{
+  font-family: "SB Agro", sans-serif;
+  margin-left: 10px;
+  border-radius: 5px;
+  width: 10% ;
+
+  background-color: #FFFFFF;
+  color: #ffcd9d;
+  border: 1px solid #ffcd9d;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.comment-input button:hover{
+  background-color: #ffe5cc;
+  color: #ff7b00;
+  border: 2px solid #ff7b00;
+}
+
+.comment-input input:focus {
+  border: 1px solid #F9A455;  
+  outline: none;              
+
+}
+

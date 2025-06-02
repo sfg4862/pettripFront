@@ -3,7 +3,7 @@
   max-width: 100%;
   margin: 0;
   padding: 0;
-  font-family: "SB 어그로", sans-serif;
+  font-family: "SB Agro", sans-serif;
   background-color: #ffffff;
   overflow-x: hidden;
 }
@@ -678,5 +678,88 @@
 
   .healthcheckup-result-page {
     padding: 15px;
+  }
+}
+
+.loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(2px);
+}
+
+.loading-spinner {
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  min-width: 300px;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid #4caf50;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-text {
+  font-size: 16px;
+  color: #333;
+  margin: 0;
+  font-weight: 500;
+  text-align: center;
+}
+
+.healthcheckup-analyze-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.healthcheckup-select:disabled,
+.healthcheckup-input:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .loading-spinner {
+    padding: 30px 20px;
+    min-width: 280px;
+    margin: 0 20px;
+  }
+
+  .spinner {
+    width: 50px;
+    height: 50px;
+    border-width: 4px;
+  }
+
+  .loading-text {
+    font-size: 14px;
   }
 }

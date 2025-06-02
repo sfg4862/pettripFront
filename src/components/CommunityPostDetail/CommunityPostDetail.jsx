@@ -11,6 +11,7 @@ const CommunityPostDetail = () => {
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
   const [allPosts, setAllPosts] = useState([]);
+  const [commentValue, setCommentValue] = useState('');
         
   useEffect(() => {
 
@@ -42,6 +43,10 @@ const CommunityPostDetail = () => {
     } else {
       navigate("/community");
     }
+  };
+
+  const handleInputChange = (e) => {
+    setCommentValue(e.target.value);
   };
 
   const handleNextPost = () => {
@@ -98,8 +103,31 @@ const CommunityPostDetail = () => {
 
   };
 
-  const handleComment = () => {
-    alert("댓글 기능이 구현될 예정입니다.");
+  const handleAddComment = () => {
+
+    const commentData = {
+      user_id : sessionStorage.getItem('user_id'),
+      post_id : post.id,
+      content : commentValue
+    }
+
+
+    axios.post(`${host}/comment`,commentData,{
+      headers : {
+        "Content-Type": "application/json"
+      }
+      ,withCredentials: true 
+    })
+    .then(r => {
+      alert('댓글 등록이 완료되었습니다!');
+      navigate(0);
+    })
+    .catch(e => {
+      alert('잘못된 요청입니다.');
+    })
+
+
+    
   };
 
   if (loading) {
@@ -163,7 +191,74 @@ const CommunityPostDetail = () => {
               ))}
             </div>
           </div>
+          <div className='comment-area'>
+            <h3>댓글 {post.comments.length}개</h3>
+              <div>
+                {post.comments.map((comment) => (
+                  <div>
+                  <hr style={{border: '1px solid #eee' }} />
+                  <div key={comment.id} className='comment-item'>
+                    <div className="comment-author-info">
+                      <div className="author-avatar">
+                        {comment.user_profil ? (
+                        <img src={`${host}/${comment.user_profil}`} alt={post.author} />
+                      ) : (
+                        <img src={url.defaultProfileUrl} alt={post.author} />
+                      )}
+                      </div>
+                      <span className="author-name">{comment.user_name}</span>
+                    </div>
+                    <div className="comment-content">{comment.content}</div>
 
+                    { (sessionStorage.getItem('user_id') == comment.user_id) ? (
+                      <div className="comment-button">
+                      <button className="comment-delete" onClick={()=>{
+                        const confirmed = window.confirm("정말로 이 댓글을 삭제하시겠습니까?");
+                          if (confirmed) {
+                            axios.delete(`${host}/comment/${comment.id}`, {
+                              headers: {
+                                "Content-Type": "application/json",
+                                "Authorization": sessionStorage.getItem('user_id')
+                              },
+                              withCredentials: true
+                            })
+                                .then(() => {
+                                  alert("댓글이 삭제되었습니다.");
+                                  navigate(0);
+                                })
+                                .catch(() => {
+                                  alert("잘못된 요청입니다.");
+                                });
+                          }
+
+                      }}>삭제</button>
+                    </div>
+                    ):(
+                      ""
+                    )}
+                  
+  
+                  </div>
+                  </div>
+                ))}
+              </div>
+
+              { sessionStorage.getItem('user_id') ? (
+              <div className= 'comment-add-area'>
+                <div className='comment-input'>
+                  <input
+                    type='text'
+                    value={commentValue}
+                    onChange={handleInputChange}
+                    placeholder='댓글을 입력하세요'
+                  />
+                  <button onClick={handleAddComment}>등록</button>
+                </div>
+              </div>
+              ):(
+                ""
+              )}
+          </div>
           <div className="post-actions">
                 <div className="left-actions">
                   <button className="action-button back" onClick={handleBackToList}>
@@ -211,9 +306,6 @@ const CommunityPostDetail = () => {
                 좋아요 {post.likes}
               </button>
               )}
-              <button className="action-button comment" onClick={handleComment}>
-                댓글
-              </button>
             </div>
           </div>
         </div>

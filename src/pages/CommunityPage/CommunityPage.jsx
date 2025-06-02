@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./CommunityPage.style.css";
 import lockIcon from "../../images/CommunityPage/LockIcon.png";
-import axios from 'axios'
+import axios from 'axios';
 
 const CommunityPage = () => {
   const navigate = useNavigate();
@@ -14,7 +14,18 @@ const CommunityPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
   const [isLoading, setLoaing] = useState(1);
-  const postsPerPage = 8;
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const postsPerPage = isMobile ? 6 : 8;
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
 
   useEffect(() => {
 
@@ -87,9 +98,20 @@ const CommunityPage = () => {
 
   const renderPageNumbers = () => {
     let pageNumbers = [];
-    if (totalPages <= 5) {
-      for (let i = 1; i <= totalPages; i++) {
-        pageNumbers.push(i);
+  const maxVisible = isMobile ? 3 : 5;
+
+  if (totalPages <= maxVisible) {
+    for (let i = 1; i <= totalPages; i++) {
+      pageNumbers.push(i);
+    }
+  } else {
+    if (isMobile) {
+      if (currentPage === 1) {
+        pageNumbers = [1, 2, 3];
+      } else if (currentPage === totalPages) {
+        pageNumbers = [totalPages - 2, totalPages - 1, totalPages];
+      } else {
+        pageNumbers = [currentPage - 1, currentPage, currentPage + 1];
       }
     } else {
       if (currentPage <= 3) {
@@ -112,8 +134,22 @@ const CommunityPage = () => {
         ];
       }
     }
-    return pageNumbers;
+  }
+
+  return pageNumbers;
   };
+
+  const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  return isMobile
+    ? date.toLocaleDateString("ko-KR", { month: "short", day: "numeric" })
+    : date.toLocaleDateString("ko-KR", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+        weekday: "short",
+      }) + "요일";
+};
 
   return (
     <div className="community-page">
@@ -191,14 +227,7 @@ const CommunityPage = () => {
                   <p className="post-text">
                     {post.isPrivate ? "비밀글입니다." : post.content}
                   </p>
-                  <p className="post-date">
-                    {new Date(post.date).toLocaleDateString('ko-KR', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                      weekday: 'short',
-                    })}요일
-                  </p>
+                  <p className="post-date">{formatDate(post.date)}</p>
                 </div>
                 <div className="post-footer">
                   <div className="author-info">
@@ -209,7 +238,21 @@ const CommunityPage = () => {
                       <img src={url.defaultProfileUrl} alt={post.author} />
                     )}
                     </div>
-                    <span className="author-name">by. {post.author}</span>
+                    <span className="author-name">{post.author}</span>
+                  </div>
+                  <div className="comment-section">
+                    <svg 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      fill="none" 
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24" 
+                      stroke-width="1.5" 
+                      stroke="#888"
+                      class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+                    </svg>
+                    <span className="comment-count">{post.commentsCount}</span>
                   </div>
                   <div className="like-section">
                     {post.isLiked === 1 ? (
@@ -291,7 +334,7 @@ const CommunityPage = () => {
 
         <div className="write-btn-container">
           <button className="write-btn" onClick={handleWriteClick}>
-            글 작성하기
+            {isMobile ? "글쓰기" : "글 작성하기"}
           </button>
         </div>
       </div>
