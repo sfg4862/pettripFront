@@ -91,19 +91,19 @@ const CommunityPostDetail = () => {
             }})
           .then(r2 => {
             alert("공감이 취소되었습니다.");
-            navigate(0)
+            document.location.reload()
           })
           .catch(e =>{
             alert("잘못된 요청입니다.");
           })}
         else {
           alert("공감이 완료되었습니다!");
-          navigate(0)
+          document.location.reload()
         }
       })
       .catch(e => {
         alert("잘못된 요청입니다.");
-        navigate(0)
+        document.location.reload()
       })
     }
   };
@@ -125,7 +125,7 @@ const CommunityPostDetail = () => {
     })
     .then(r => {
       alert('댓글 등록이 완료되었습니다!');
-      navigate(0);
+      document.location.reload();
     })
     .catch(e => {
       alert('잘못된 요청입니다.');
@@ -233,7 +233,7 @@ const CommunityPostDetail = () => {
                             })
                                 .then(() => {
                                   alert("댓글이 삭제되었습니다.");
-                                  navigate(0);
+                                  document.location.reload();
                                 })
                                 .catch(() => {
                                   alert("잘못된 요청입니다.");

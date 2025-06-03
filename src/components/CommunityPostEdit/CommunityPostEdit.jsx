@@ -80,19 +80,19 @@ const CommunityPostEdit = () => {
                         }})
                         .then(r2 => {
                             alert("좋아요가 취소되었습니다.");
-                            navigate(0)
+                            document.location.reload();
                         })
                         .catch(e =>{
                             alert("잘못된 요청입니다.");
                         })}
                 else {
                     alert("좋아요 등록이 완료되었습니다!");
-                    navigate(0)
+                    document.location.reload();
                 }
             })
             .catch(e => {
                 alert("잘못된 요청입니다.");
-                navigate(0)
+                document.location.reload();
             })
 
     };
