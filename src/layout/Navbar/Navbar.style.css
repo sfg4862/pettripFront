@@ -23,6 +23,23 @@
   gap: 2rem;
 }
 
+.menu.menu-open {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: absolute;
+  top: 100%;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.menu-toggle {
+  display: none;
+}
+
 .menu-item {
   color: #333;
   font-size: 1rem;
@@ -235,8 +252,46 @@
     padding: 1rem;
   }
 
+
+
   .menu {
+    position: absolute;
+    top: 100%; /* menu-toggle 아래에 뜨게 */
+    left: 0;
+    right: 0;
+    background-color: white;
     display: none;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 999;
+    
+  }
+
+  .menu.menu-open {
+    display: flex;
+    margin: 10px;
+    padding: 15px;
+  }
+
+  .menu-item{
+    width:80%;
+    border-bottom: 1px solid #aaa ;
+    text-align: center;
+    margin-bottom: 10px;
+
+  }
+
+  .menu-toggle {
+    display: block;
+    background-color: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
   }
 
   .sidebar {

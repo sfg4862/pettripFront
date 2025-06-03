@@ -9,6 +9,7 @@ export const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userData, setUserData] = useState(null);
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // 컴포넌트 마운트 시 로그인 상태 확인
   useEffect(() => {
@@ -85,7 +86,14 @@ export const Navbar = () => {
         <Link to="/" className="logo" style={{ textDecoration: "none" }}>
           Pet's Trip
         </Link>
-        <div className="menu">
+        
+        <button
+            className="menu-toggle"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          ☰
+        </button>
+        <div className={`menu ${isMenuOpen ? "menu-open" : ""}`}>
           <Link
             to="/record_daily"
             className="menu-item"
@@ -93,6 +101,7 @@ export const Navbar = () => {
           >
             성장 기록
           </Link>
+          
           <Link
             to="/search"
             className="menu-item"
