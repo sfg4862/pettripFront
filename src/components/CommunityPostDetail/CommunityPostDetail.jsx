@@ -38,11 +38,25 @@ const CommunityPostDetail = () => {
   }, [postId]);
 
   const handlePrevPost = () => {
-    if (parseInt(postId) > 1) {
-      navigate(`/community/post/${parseInt(postId) - 1}`);
-    } else {
-      navigate("/community");
+    axios.get(`${host}/BOARD/`,{
+    params : {
+      page : 1
     }
+    })
+    .then(r=>{
+      const currentIndex = r.data.data.findIndex(p => p.id === post.id);
+      let prevPostId = null;
+      if (currentIndex != 0) {
+      prevPostId = r.data.data[currentIndex - 1].id;
+      navigate(`/community/post/${prevPostId}`);
+      }
+      else{
+        alert('이전 게시물이 없습니다.');
+      }
+      })
+    .catch(e=>{
+      alert('잘못된 요청입니다.');
+    });
   };
 
   const handleInputChange = (e) => {
@@ -50,14 +64,30 @@ const CommunityPostDetail = () => {
   };
 
   const handleNextPost = () => {
-    const hasNextPost = allPosts.some((p) => p.id === parseInt(postId) + 1);
-
-    if (hasNextPost) {
-      navigate(`/community/post/${parseInt(postId) + 1}`);
-    } else {
-      navigate("/community");
+    
+    axios.get(`${host}/BOARD/`,{
+    params : {
+      page : 1
     }
+    })
+    .then(r=>{
+      const currentIndex = r.data.data.findIndex(p => p.id === post.id);
+      let nextPostId = null;
+      if (currentIndex != -1 && currentIndex < r.data.data.length - 1) {
+      nextPostId = r.data.data[currentIndex + 1].id;
+      
+      navigate(`/community/post/${nextPostId}`);
+      }
+      else{
+        alert('다음게시물이 없습니다.');
+      }
+      })
+    .catch(e=>{
+      alert('잘못된 요청입니다.');
+    });
   };
+
+
 
   const handleBackToList = () => {
     navigate("/community");
