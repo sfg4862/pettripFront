@@ -4,10 +4,10 @@ import host from "../../host.js";
 import healthcheckupImage from "../../images/HealthCheckupPage/healthcheckupimage.png";
 
 const LoadingSpinner = () => (
-  <div className="loading-overlay">
-    <div className="loading-spinner">
-      <div className="spinner"></div>
-      <p className="loading-text">AI가 이미지를 분석 중입니다...</p>
+  <div className="ai-loading-overlay">
+    <div className="ai-loading-spinner">
+      <div className="ai-spinner"></div>
+      <p className="ai-loading-text">AI가 이미지를 분석 중입니다...</p>
     </div>
   </div>
 );

@@ -184,7 +184,7 @@
 
 .healthcheckup-file-input {
   display: none;
-}
+} 
 
 .healthcheckup-preview-container {
   width: 100%;
@@ -681,7 +681,7 @@
   }
 }
 
-.loading-overlay {
+.ai-loading-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -695,7 +695,7 @@
   backdrop-filter: blur(2px);
 }
 
-.loading-spinner {
+.ai-loading-spinner {
   background: white;
   padding: 40px;
   border-radius: 16px;
@@ -706,7 +706,7 @@
   min-width: 300px;
 }
 
-.spinner {
+.ai-spinner {
   width: 60px;
   height: 60px;
   border: 5px solid #f3f3f3;
@@ -725,7 +725,7 @@
   }
 }
 
-.loading-text {
+.ai-loading-text {
   font-size: 16px;
   color: #333;
   margin: 0;
@@ -747,19 +747,19 @@
 }
 
 @media (max-width: 768px) {
-  .loading-spinner {
+  .ai-loading-spinner {
     padding: 30px 20px;
     min-width: 280px;
     margin: 0 20px;
   }
 
-  .spinner {
+  .ai-spinner {
     width: 50px;
     height: 50px;
     border-width: 4px;
   }
 
-  .loading-text {
+  .ai-loading-text {
     font-size: 14px;
   }
 }
