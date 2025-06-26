@@ -98,7 +98,7 @@ export const Navbar = () => {
             to="/record_daily"
             className="menu-item"
             style={{ textDecoration: "none" }}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => setIsMenuOpen(0)}
           >
             성장 기록
           </Link>
@@ -107,7 +107,7 @@ export const Navbar = () => {
             to="/search"
             className="menu-item"
             style={{ textDecoration: "none" }}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => setIsMenuOpen(0)}
           >
             숙소 · 맛집
           </Link>
@@ -115,7 +115,7 @@ export const Navbar = () => {
             to="/petsitter"
             className="menu-item"
             style={{ textDecoration: "none" }}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => setIsMenuOpen(0)}
           >
             펫시터 예약
           </Link>
@@ -123,7 +123,7 @@ export const Navbar = () => {
             to="/health-checkup"
             className="menu-item"
             style={{ textDecoration: "none" }}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => setIsMenuOpen(0)}
           >
             AI 건강 분석
           </Link>
@@ -131,7 +131,7 @@ export const Navbar = () => {
             to="/community"
             className="menu-item"
             style={{ textDecoration: "none" }}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => setIsMenuOpen(0)}
           >
             커뮤니티
           </Link>
@@ -139,7 +139,7 @@ export const Navbar = () => {
             to="/faq"
             className="menu-item"
             style={{ textDecoration: "none" }}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={() => setIsMenuOpen(0)}
           >
             이용 안내
           </Link>
