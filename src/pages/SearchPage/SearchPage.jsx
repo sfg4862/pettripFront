@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import "./SearchPage.style.css";
-import regionData from "../../korea_region/reference_json.json";
+import regionData from "../../korea_region/reference_search.json";
 
 function SearchPage() {
   const [searchParams] = useSearchParams();
