@@ -44,7 +44,9 @@
 }
 
 .searchpage-search-box {
-  background-color: #fff;
+  width: 100%;
+  background-color: #ffffff80;
+  backdrop-filter: blur(5px);
   border-radius: 15px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -53,7 +55,33 @@
 .searchpage-search-input {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 12px 15px;
+  flex-direction: column;
+}
+.s-province-city-dropdown{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.s-province-city-container{
+  width: 100%;
+}
+
+.s-province-city-container select{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background-color: white;
+  font-size: 15px;
+  transition: border-color 0.2s;
+}
+
+.s-sigungu{
+  margin-left: 10px;
 }
 
 .searchpage-search-icon {
@@ -81,6 +109,11 @@
   font-family: "SB 어그로", sans-serif;
   cursor: pointer;
   min-width: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1em;
 }
 
 .searchpage-recent-container {
@@ -159,6 +192,10 @@
   transition: all 0.3s ease;
 }
 
+.searchpage-search-button:hover{
+  background-color: #ffa908;
+}
+
 .searchpage-type-button.active {
   color: #f8b73f;
 }
@@ -207,4 +244,14 @@
 .searchpage-search-button{
   width: 100%;
 }
+
+.s-province-city-dropdown{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.s-sigungu{
+  margin-left: unset;
+}
+
 }

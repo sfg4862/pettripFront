@@ -335,3 +335,9 @@
     right: -280px;
   }
 }
+
+@media (max-width: 376px) {
+  .login-signup{
+    font-size: 10px;
+  }
+}

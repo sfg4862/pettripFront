@@ -60,7 +60,7 @@ function SearchPage() {
       <div className="searchpage-content">
         <div className="searchpage-title-container">
           <h1 className="searchpage-title">
-            AI가 해당 지역의
+            펫트립이 해당 지역의
             <br />
             맞춤 숙소와 맛집을
             <br />
@@ -101,24 +101,36 @@ function SearchPage() {
               </button>
               */}
 
-              <div className="province-city-dropdown">
-                <select value={selectedSido} onChange={handleSidoChange}>
-                  <option value="">시/도 선택</option>
-                  {Object.keys(regionData).map((sido) => (
-                    <option key={sido} value={sido}>{sido}</option>
-                  ))}
-                </select>
-
-                <select value={selectedSigungu} onChange={handleSigunguChange} disabled={!selectedSido}>
-                  <option value="">시/군/구 선택</option>
-                   <option key='all' value='전체'>전체</option>
-                  {selectedSido &&
-                    Object.keys(regionData[selectedSido]).map((sigungu) => (
-                      <option key={sigungu} value={sigungu}>{sigungu}</option>
+              <div className="s-province-city-container">
+                <div className="s-province-city-dropdown">
+                  <select value={selectedSido} onChange={handleSidoChange}>
+                    <option value="">시/도 선택</option>
+                    {Object.keys(regionData).map((sido) => (
+                      <option key={sido} value={sido}>{sido}</option>
                     ))}
-                </select>
+                  </select>
+                  <select className="s-sigungu" value={selectedSigungu} onChange={handleSigunguChange} disabled={!selectedSido}>
+                    <option value="">시/군/구 선택</option>
+                    <option key='all' value='전체'>전체</option>
+                    {selectedSido &&
+                      Object.keys(regionData[selectedSido]).map((sigungu) => (
+                        <option key={sigungu} value={sigungu}>{sigungu}</option>
+                      ))}
+                  </select>
+                </div>
               </div>
-              <button onClick={handleSearch}>제출</button>
+              <button className="searchpage-search-button" onClick={handleSearch}>
+                {<svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill="white"
+                    d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.5 6.5 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                  />
+                </svg>}검색하기</button>
             </div>
           </div>
 
