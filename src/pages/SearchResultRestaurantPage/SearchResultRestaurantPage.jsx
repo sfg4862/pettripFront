@@ -26,7 +26,8 @@ const RESTAURANT_DATA = [
 
 function SearchResultRestaurantPage() {
   const [allRestaurants, setAllRestaurants] = useState([]);
-  const { location } = useParams();
+  const { sido,sigungu } = useParams();
+  const location = `${sido} ${sigungu}`
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
   const [isLoading,setLoading] = useState(1);
   const [filters, setFilters] = useState({
@@ -48,7 +49,8 @@ function SearchResultRestaurantPage() {
       params: {
         page,
         type: area_type,
-        area
+        sido: sido,
+        sigungu: sigungu
       }
     })
         .then(r => {

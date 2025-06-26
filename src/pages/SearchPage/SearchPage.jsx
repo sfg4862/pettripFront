@@ -1,61 +1,48 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import "./SearchPage.style.css";
+import regionData from "../../korea_region/reference_json.json";
 
 function SearchPage() {
   const [searchParams] = useSearchParams();
   const initialType = searchParams.get("type") || "accommodation";
   const [searchType, setSearchType] = useState(initialType);
-  const [location, setLocation] = useState("");
   const [recentSearches, setRecentSearches] = useState([]);
   const [showRecentSearches, setShowRecentSearches] = useState(false);
+  const [selectedSido, setSelectedSido] = useState("");
+  const [selectedSigungu, setSelectedSigungu] = useState("");
   const navigate = useNavigate();
 
+
   useEffect(() => {
-    const savedSearches = localStorage.getItem("recentSearches");
-    if (savedSearches) {
-      setRecentSearches(JSON.parse(savedSearches));
-    }
   }, []);
 
-  const saveSearch = (searchTerm) => {
-    if (!searchTerm.trim()) return;
 
-    const updatedSearches = [
-      searchTerm,
-      ...recentSearches.filter((term) => term !== searchTerm),
-    ].slice(0, 5);
-    setRecentSearches(updatedSearches);
-    localStorage.setItem("recentSearches", JSON.stringify(updatedSearches));
-  };
 
   const handleSearch = (e) => {
     e.preventDefault();
-    if (!location.trim()) return;
-
-    saveSearch(location);
+    if (!selectedSido.trim() || !selectedSido.trim()) return;
 
     if (searchType === "accommodation") {
-      navigate(`/search/accommodation/${encodeURIComponent(location)}`);
+      navigate(`/search/accommodation/${encodeURIComponent(selectedSido)}/${encodeURIComponent(selectedSigungu)}`);
     } else {
-      navigate(`/search/restaurant/${encodeURIComponent(location)}`);
+      navigate(`/search/restaurant/${encodeURIComponent(selectedSido)}/${encodeURIComponent(selectedSigungu)}`);
     }
+  };
+
+  const handleSidoChange = (e) => {
+    const sido = e.target.value;
+    setSelectedSido(sido);
+    setSelectedSigungu("전체");
+  };
+
+  const handleSigunguChange = (e) => {
+    const sigungu = e.target.value;
+    setSelectedSigungu(sigungu);
   };
 
   const handleTypeChange = (type) => {
     setSearchType(type);
-  };
-
-  const handleRecentSearchClick = (term) => {
-    setLocation(term);
-    setShowRecentSearches(false);
-    setTimeout(() => {
-      if (searchType === "accommodation") {
-        navigate(`/search/accommodation/${encodeURIComponent(term)}`);
-      } else {
-        navigate(`/search/restaurant/${encodeURIComponent(term)}`);
-      }
-    }, 100);
   };
 
   const handleInputFocus = () => {
@@ -84,6 +71,7 @@ function SearchPage() {
         <div className="searchpage-search-container">
           <div className="searchpage-search-box">
             <div className="searchpage-search-input">
+              {/*
               <span className="searchpage-search-icon">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -111,32 +99,34 @@ function SearchPage() {
               >
                 검색
               </button>
+              */}
+
+              <div className="province-city-dropdown">
+                <select value={selectedSido} onChange={handleSidoChange}>
+                  <option value="">시/도 선택</option>
+                  {Object.keys(regionData).map((sido) => (
+                    <option key={sido} value={sido}>{sido}</option>
+                  ))}
+                </select>
+
+                <select value={selectedSigungu} onChange={handleSigunguChange} disabled={!selectedSido}>
+                  <option value="">시/군/구 선택</option>
+                   <option key='all' value='전체'>전체</option>
+                  {selectedSido &&
+                    Object.keys(regionData[selectedSido]).map((sigungu) => (
+                      <option key={sigungu} value={sigungu}>{sigungu}</option>
+                    ))}
+                </select>
+              </div>
+              <button onClick={handleSearch}>제출</button>
             </div>
           </div>
-
-          {showRecentSearches && recentSearches.length > 0 && (
-            <div className="searchpage-recent-container">
-              <h3 className="searchpage-recent-title">최근 검색어</h3>
-              <ul className="searchpage-recent-list">
-                {recentSearches.map((term, index) => (
-                  <li
-                    key={index}
-                    className="searchpage-recent-item"
-                    onClick={() => handleRecentSearchClick(term)}
-                  >
-                    <span className="searchpage-clock-icon">⌚</span> {term}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
 
           <div className="searchpage-type-container">
             <div className="searchpage-type-selector">
               <button
-                className={`searchpage-type-button ${
-                  searchType === "accommodation" ? "active" : ""
-                }`}
+                className={`searchpage-type-button ${searchType === "accommodation" ? "active" : ""
+                  }`}
                 onClick={() => handleTypeChange("accommodation")}
               >
                 <div className="searchpage-type-icon">🏠</div>
@@ -146,9 +136,8 @@ function SearchPage() {
                 )}
               </button>
               <button
-                className={`searchpage-type-button ${
-                  searchType === "restaurant" ? "active" : ""
-                }`}
+                className={`searchpage-type-button ${searchType === "restaurant" ? "active" : ""
+                  }`}
                 onClick={() => handleTypeChange("restaurant")}
               >
                 <div className="searchpage-type-icon">🍽️</div>

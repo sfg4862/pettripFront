@@ -24,7 +24,8 @@ const ACCOMMODATION_DATA = [
 
 function SearchResultAccommodationPage() {
   const [allRestaurants, setAllRestaurants] = useState([]);
-  const { location } = useParams();
+  const { sido, sigungu } = useParams();
+  const location = `${sido} ${sigungu}`;
   const [filteredAccommodations, setFilteredAccommodations] = useState([]);
   const [isLoading,setLoading] = useState(1);
   const [filters, setFilters] = useState({
@@ -46,7 +47,8 @@ function SearchResultAccommodationPage() {
       params: {
         page,
         type: area_type,
-        area
+        sido: sido,
+        sigungu: sigungu
       }
     })
         .then(r => {

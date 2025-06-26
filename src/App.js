@@ -123,221 +123,220 @@ function App() {
   return (
     <AuthContext.Provider value={{ isLoggedIn, user, login, logout }}>
       <HashRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <MainLayout>
-              <HomePage />
-            </MainLayout> 
-          }
-        />
-        <Route
-          path="/faq"
-          element={
-            <MainLayout>
-              <FAQPage />
-            </MainLayout>
-          }
-        />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/signup" element={<SignUpPage />} />
-        <Route
-          path="/search"
-          element={
-            <MainLayout>
-              <SearchPage />
-            </MainLayout>
-          }
-        />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <MainLayout>
+                <HomePage />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/faq"
+            element={
+              <MainLayout>
+                <FAQPage />
+              </MainLayout>
+            }
+          />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route
+            path="/search"
+            element={
+              <MainLayout>
+                <SearchPage />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/search/accommodation/:sido/:sigungu"
+            element={
+              <MainLayout>
+                <SearchResultAccommodationPage />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/search/restaurant/:sido/:sigungu"
+            element={
+              <MainLayout>
+                <SearchResultRestaurantPage />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/petsitter/search"
+            element={
+              <MainLayout>
+                <PetSitterReservePage />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/petsitter"
+            element={
+              <MainLayout>
+                <PetSitterMainPage />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/petsitter/register"
+            element={
+              <MainLayout>
+                <PetSitterRegisterPage />
+              </MainLayout>
+            }
+          />
+          <Route
+            path="/petsitter/:id"
+            element={<PetSitterDetailLayout />}
+          />
 
-        <Route
-          path="/search/accommodation/:location"
-          element={
-            <MainLayout>
-              <SearchResultAccommodationPage />
-            </MainLayout>
-          }
-        />
-        <Route
-          path="/search/restaurant/:location"
-          element={
-            <MainLayout>
-              <SearchResultRestaurantPage />
-            </MainLayout>
-          }
-        />
-        <Route
-          path="/petsitter/search"
-          element={
-            <MainLayout>
-              <PetSitterReservePage />
-            </MainLayout>
-          }
-        />
-        <Route
-          path="/petsitter"
-          element={
-            <MainLayout>
-              <PetSitterMainPage />
-            </MainLayout>
-          }
-        />
-        <Route
-          path="/petsitter/register"
-          element={
-            <MainLayout>
-              <PetSitterRegisterPage />
-            </MainLayout>
-          }
-        />
-        <Route
-          path="/petsitter/:id"
-          element={<PetSitterDetailLayout />}
-        />
+          <Route
+            path="/health-checkup"
+            element={
+              <MainLayout>
+                <HealthCheckupPage />
+              </MainLayout>
+            }
+          />
 
-        <Route
-          path="/health-checkup"
-          element={
-            <MainLayout>
-              <HealthCheckupPage />
-            </MainLayout>
-          }
-        />
-
-        <Route
-          path="/community"
-          element={
-            <MainLayout>
-              <CommunityPage />
-            </MainLayout>
-          }
-        />
-        <Route path="/community/post/:postId" element={<PostDetailLayout />} />
-        <Route path="/community/post/edit/:postId" element={
+          <Route
+            path="/community"
+            element={
+              <MainLayout>
+                <CommunityPage />
+              </MainLayout>
+            }
+          />
+          <Route path="/community/post/:postId" element={<PostDetailLayout />} />
+          <Route path="/community/post/edit/:postId" element={
             <MainLayout>
               <CommunityPostEdit />
             </MainLayout>
-        } />
-        <Route
-          path="/community/write"
-          element={
-            <ProtectedRoute>
-              <MainLayout>
-                <CommunityPostWritePage />
-              </MainLayout>
-            </ProtectedRoute>
-          }
-        />
+          } />
+          <Route
+            path="/community/write"
+            element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <CommunityPostWritePage />
+                </MainLayout>
+              </ProtectedRoute>
+            }
+          />
 
-        <Route
-          path="/record_daily"
-          element={
-            <ProtectedRoute>
-              <MainLayout>
-                <RecordDailyPage />
-              </MainLayout>
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/record_daily"
+            element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <RecordDailyPage />
+                </MainLayout>
+              </ProtectedRoute>
+            }
+          />
 
-        {/* 사이드바 메뉴에서 접근할 수 있는 라우트들 */}
-        <Route
-          path="/reservations"
-          element={
-            <ProtectedRoute>
-              <MainLayout>
-                <ReserveLookupPage />
-              </MainLayout>
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/profile-edit"
-          element={
-            <ProtectedRoute>
-              <MainLayout>
-                <ProfileModifyPage />
-              </MainLayout>
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/favorite-posts"
-          element={
-            <ProtectedRoute>
+          {/* 사이드바 메뉴에서 접근할 수 있는 라우트들 */}
+          <Route
+            path="/reservations"
+            element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <ReserveLookupPage />
+                </MainLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile-edit"
+            element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <ProfileModifyPage />
+                </MainLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/favorite-posts"
+            element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <div style={{ padding: "2rem", textAlign: "center" }}>
+                    <h2>관심 피드</h2>
+                    <p>개발 예정입니다.</p>
+                  </div>
+                </MainLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/my-posts"
+            element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <div style={{ padding: "2rem", textAlign: "center" }}>
+                    <h2>게시물 관리</h2>
+                    <p>개발 예정입니다.</p>
+                  </div>
+                </MainLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/points"
+            element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <div style={{ padding: "2rem", textAlign: "center" }}>
+                    <h2>적립금</h2>
+                    <p>개발 예정입니다.</p>
+                  </div>
+                </MainLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/coupons"
+            element={
+              <ProtectedRoute>
+                <MainLayout>
+                  <div style={{ padding: "2rem", textAlign: "center" }}>
+                    <h2>쿠폰</h2>
+                    <p>개발 예정입니다.</p>
+                  </div>
+                </MainLayout>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/customer-service"
+            element={
               <MainLayout>
                 <div style={{ padding: "2rem", textAlign: "center" }}>
-                  <h2>관심 피드</h2>
+                  <h2>고객센터</h2>
                   <p>개발 예정입니다.</p>
                 </div>
               </MainLayout>
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/my-posts"
-          element={
-            <ProtectedRoute>
-              <MainLayout>
-                <div style={{ padding: "2rem", textAlign: "center" }}>
-                  <h2>게시물 관리</h2>
-                  <p>개발 예정입니다.</p>
-                </div>
-              </MainLayout>
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/points"
-          element={
-            <ProtectedRoute>
-              <MainLayout>
-                <div style={{ padding: "2rem", textAlign: "center" }}>
-                  <h2>적립금</h2>
-                  <p>개발 예정입니다.</p>
-                </div>
-              </MainLayout>
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/coupons"
-          element={
-            <ProtectedRoute>
-              <MainLayout>
-                <div style={{ padding: "2rem", textAlign: "center" }}>
-                  <h2>쿠폰</h2>
-                  <p>개발 예정입니다.</p>
-                </div>
-              </MainLayout>
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/customer-service"
-          element={
-            <MainLayout>
-              <div style={{ padding: "2rem", textAlign: "center" }}>
-                <h2>고객센터</h2>
-                <p>개발 예정입니다.</p>
-              </div>
-            </MainLayout>
-          }
-        />
+            }
+          />
 
-        <Route
-          path="*"
-          element={
-            <MainLayout>
-              <div className="not-found">
-                <h1>404</h1>
-                <p>페이지를 찾을 수 없습니다.</p>
-              </div>
-            </MainLayout>
-          }
-        />
-      </Routes>
+          <Route
+            path="*"
+            element={
+              <MainLayout>
+                <div className="not-found">
+                  <h1>404</h1>
+                  <p>페이지를 찾을 수 없습니다.</p>
+                </div>
+              </MainLayout>
+            }
+          />
+        </Routes>
       </HashRouter>
     </AuthContext.Provider>
   );
