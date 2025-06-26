@@ -1,0 +1,122 @@
+@import "../../fonts/Font.style.css";
+
+.psMainPage-wrapper {
+  position: relative;
+  width: 100%;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.psMainPage-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: row;
+  z-index: 2;
+}
+
+.ps-background{
+  position: absolute;
+  background-image: url("../../images/PetSitterReservePage/PestSitterBackground.png");
+  background-size: cover;
+  background-position: top center;
+  filter: brightness(0.6); /* 0~1 사이 값, 1은 원본 밝기 */
+  z-index: 1;
+  width: 100%;
+  height:100%;
+}
+
+.psMainPage-btnContainer {
+  display: flex;
+  gap: 40px; /* 버튼 사이 간격 */
+  padding: 40px;
+}
+
+.psMainPage-search,
+.psMainPage-register,
+.psMainPage-manage {
+  display: flex;
+  width: 20vw;
+  min-width: 280px;
+  height: 18vh;
+  font-family: "SB 어그로", sans-serif;
+  font-size: 2.5em;
+  font-weight: 600;
+  border: none;
+  border-radius: 16px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0.8; /* 0(완전 투명) ~ 1(불투명) */
+box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.psmp-des{
+    font-size: 0.4em;
+    text-align: center;
+}
+
+.psMainPage-manage,.psMainPage-register{
+    margin-left: 20px;
+}
+/* 서로 다른 색상 */
+.psMainPage-search {
+  background-color: #F9A455;
+}
+
+.psMainPage-manage:hover,
+.psMainPage-register:hover,
+.psMainPage-search:hover{
+    opacity: 1;
+    transition: 0.3s;
+    transform: scale(1.05);
+}
+.psMainPage-search:hover {
+  background-color: #ff9839;
+}
+
+.psMainPage-register {
+  background-color: #ffd24c;
+}
+.psMainPage-register:hover {
+  background-color: rgb(255, 201, 54);
+}
+
+.psMainPage-manage {
+  background-color: #ff8370c4;
+}
+.psMainPage-manage:hover {
+  background-color: #ff6048c4;
+  opacity: 1;
+}
+
+@media(max-width: 730px){
+
+.psMainPage-btnContainer{
+  flex-direction: column;
+}
+
+.psMainPage-register,
+.psMainPage-manage{
+  margin-left: unset;
+}
+
+.psMainPage-search,
+.psMainPage-register,
+.psMainPage-manage {
+  display: flex;
+  width: 250px;
+  min-width: 150px;
+  height: 18vh;
+  font-size: 2em;
+  font-weight: 600;
+}
+}
+
+

@@ -69,8 +69,8 @@ const LoginPage = () => {
 
         <div className="logo-container">
           <h1 className="logo-text">
-            <span className="logo-pet">PET</span>
-            <span className="logo-trip">TRIP</span>
+            <span className="logo-pet">Pet's</span>
+            <span className="logo-trip"> Trip</span>
           </h1>
         </div>
 

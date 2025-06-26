@@ -1,0 +1,257 @@
+@import "../../fonts/Font.style.css";
+
+.ps-rg-container {
+  display: flex;
+  justify-content: center; /* 가로 가운데 */
+  align-items: center; 
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+
+.ps-register-section {
+  margin-bottom: 30px;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  border: 1px solid #e9ecef;
+  width: 60vw;
+  min-width: 400px;
+}
+
+.rg-image-drop-zone {
+  border: 2px dashed #ddd;
+  border-radius: 10px;
+  padding: 40px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.rg-image-drop-zone:hover {
+  border-color: #e6a73e;
+  background-color: #fef9f4;
+}
+
+.rg-drop-zone-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.rg-drop-zone-content img{      /* 고정 너비 */
+  height: 200px;         /* 고정 높이 */
+  object-fit: contain;     /* 비율 유지하면서 영역 채우기 */
+  border-radius: 10px;   
+}
+
+.ps-input-region{
+  display: flex;
+  justify-content: center; /* 가로 가운데 */
+  align-items: center; 
+}
+
+.ps-region-question-container{
+  text-align: center;
+  margin-right: 2vw;
+}
+
+/* 전체 컨테이너 스타일 */
+.rg-province-city-container {
+  display: block;
+  padding: 10px;
+  border-radius: 5px;
+  }
+
+/* 드롭다운 공통 스타일 */
+.rg-province-city-container select {
+  width: 20vw;
+  padding: 10px;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  background-color: white;
+  font-size: 15px;
+  transition: border-color 0.2s;
+  margin-right: 10px;
+}
+
+.rg-province-city-container select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.rg-info-container{
+  display: flex;
+  justify-content: center;
+}
+
+.rg-info-container h3{
+  height: 100%;
+  text-align: center;
+  margin-right: 10px;
+}
+
+.rg-info-q1,.rg-info-q2{
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  justify-content: center;
+}
+
+.rg-info-q1 input,.rg-info-q2 textarea{
+  width: 30vw;
+}
+
+
+.rg-info-q2 textarea{
+  height: 200px;
+  margin-left: 13px;
+}
+
+.rg-time-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rg-time-con{
+  margin-right: 40px;
+  text-align: center;
+}
+
+.rg-time-select{
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+}
+
+
+.temp1{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.rg-time-radio label{
+  margin-left: 30px;
+}
+
+
+.rg-text{
+  width: 100%;
+}
+
+.rg-text h2{
+  text-align: center;
+}
+
+.rg-type-cost{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rg-type-cost h3{
+  margin-right: 20px;
+}
+
+.rg-type-cost input{
+  width: 20vw;
+  text-align: right;
+}
+
+.rg-type-cost span{
+  margin-left:5px;
+}
+
+.rg-submit-container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.rg-submit-container button{
+  width: 10vw;
+  height: 55px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 6px;
+  color:#ffffff;
+  cursor:pointer;
+}
+
+.rg-sumbit{
+  margin-left: 30px;
+  background-color: #ffc257;
+}
+
+.rg-sumbit:hover{
+  background-color: #ffb12b;
+  transition: 0.3s;
+}
+
+.rg-refuse{
+  background-color: #ffdea080;
+}
+
+@media (max-width:1270px){
+
+.ps-rg-container h1{
+  font-size: 20px;
+}
+
+.rg-province-city-container select {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.ps-input-region{
+  flex-direction: column;
+}
+
+.rg-info-container h3{
+  width: unset;
+  min-width: 19vw;
+  margin-right: unset;
+}
+
+.rg-type-cost input{
+  min-width: 20vw;
+  width: unset;
+}
+
+.rg-info-q1 input,.rg-info-q2 textarea{
+  min-width: 200px;
+}
+
+.rg-info-q2 textarea{
+  margin-left: unset;
+}
+
+.ps-region-question-container {
+    margin-right: unset;
+}
+
+.rg-submit-container button{
+  width: 140px;
+  height: 50px;
+  font-size: 1.2em;
+}
+
+.rg-time-con{
+  margin-right: 0px;
+}
+.rg-time-radio label{
+  margin-left: 5px;
+}
+.rg-time-radio form{
+  display: flex;
+  justify-content: center;
+}
+}

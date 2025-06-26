@@ -2,7 +2,6 @@
 
 .signup-page {
   width: 100%;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
@@ -44,7 +43,7 @@
   color: #c35b27;
   margin-bottom: 25px;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .signup-form {

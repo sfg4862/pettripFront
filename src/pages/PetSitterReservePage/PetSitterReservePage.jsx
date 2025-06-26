@@ -1,49 +1,61 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import regionData from "../../korea_region/reference_json.json";
+import reverseRegionData from "../../korea_region/reverse_json.json"
 import "./PetSitterReservePage.style.css";
+import axios from 'axios';
+import host from '../../host';
+
 
 const PetSitterReservePage = () => {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedLocation, setSelectedLocation] = useState("없음");
+  const [selectedSido, setSelectedSido] = useState("");
+  const [selectedSigungu, setSelectedSigungu] = useState("");
+  const [sigunguCode, setSigunguCode] = useState("");
+  const [petSitters, setPetSitters] = useState([]);
+  const [isSearched,setIsSearched] = useState(0);
 
-  const petSitters = [
-    {
-      id: 1,
-      location: "전북 익산시",
-      title: "이름",
-      description: "#이용가능한 #역세권 #여행중",
-      image:
-        "https://images.unsplash.com/photo-1581888227599-779811939961?q=80&w=1674&auto=format&fit=crop",
-      rating: 5,
-      reviewCount: 24,
-      price: 60000,
-    },
-    {
-      id: 2,
-      location: "전북 익산시",
-      title: "이름",
-      description: "#이용가능한 #역세권 #여행중",
-      image:
-        "https://images.unsplash.com/photo-1592194996308-7b43878e84a6?q=80&w=1374&auto=format&fit=crop",
-      rating: 4.5,
-      reviewCount: 18,
-      price: 60000,
-    },
-    {
-      id: 3,
-      location: "전북 익산시",
-      title: "이름",
-      description: "#이용가능한 #역세권 #여행중",
-      image:
-        "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?q=80&w=1376&auto=format&fit=crop",
-      rating: 4.8,
-      reviewCount: 32,
-      price: 60000,
-    },
-  ];
+  useEffect(() => {
+  axios.get(`${host}/ps`)
+    .then((r) => {
+      const shuffled = r.data.sort(() => 0.5 - Math.random()); 
+      const selected = shuffled.slice(0, 3);
+      setPetSitters(selected);
+    })
+    .catch((e) => {
+      console.log("내부 서버에서 오류 발생");
+    });
+}, []);
+
 
   const locations = ["없음", "픽업", "대형견", "노견", "산책"];
+
+  function getRegionName(code) {
+    const region = reverseRegionData[code];
+    if (region) {
+      return `${region.sido} ${region.sigungu}`;
+    } else {
+      return "알수없음";
+    }
+  }
+
+  const handleSidoChange = (e) => {
+    const sido = e.target.value;
+    setSelectedSido(sido);
+    setSelectedSigungu("");
+    setSigunguCode("");
+  };
+
+  const handleSigunguChange = (e) => {
+    const sigungu = e.target.value;
+    setSelectedSigungu(sigungu);
+
+    // 시군구에 포함된 읍면동 중 첫 번째 항목의 코드 기준으로 시군구 코드 추출
+    const firstDong = regionData[selectedSido][sigungu][0];
+    const code = firstDong.code.slice(0, 5); // 앞 5자리 = 시군구 코드
+    setSigunguCode(code);
+  };
 
   const handleSitterClick = (sitterId) => {
     navigate(`/petsitter/${sitterId}`);
@@ -54,15 +66,17 @@ const PetSitterReservePage = () => {
     console.log("Searching for:", searchTerm);
   };
 
-  const filteredSitters = petSitters.filter((sitter) => {
-    return (
-      (selectedLocation === "없음" ||
-        sitter.description.includes(selectedLocation)) &&
-      (searchTerm === "" ||
-        sitter.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        sitter.description.toLowerCase().includes(searchTerm.toLowerCase()))
-    );
-  });
+  const handleSubmit = () => {
+    axios.get(`${host}/ps/rg/${sigunguCode}`)
+      .then((r) => {
+        console.log(r);
+        setPetSitters(r.data);
+        setIsSearched(1);
+      })
+      .catch((e) => {
+        console.log("내부 서버에서 오류 발생")
+      });
+  }
 
   const renderStars = (rating) => {
     const stars = [];
@@ -124,60 +138,41 @@ const PetSitterReservePage = () => {
           <div className="petsitter-hero-image"></div>
         </div>
       </div>
-
       <div className="petsitter-content-container">
-        <div className="petsitter-search-section">
-          <h3 className="petsitter-search-title">어디에 거주하시나요?</h3>
-          <form className="petsitter-search-form" onSubmit={handleSearch}>
-            <div className="petsitter-search-input-container">
-              <span className="petsitter-search-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z"
-                    stroke="#999"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
-              <input
-                type="text"
-                placeholder="지역을 입력해주세요. (예. 모란동)"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="petsitter-search-input"
-              />
-            </div>
-          </form>
-        </div>
+        <div className="province-city-container">
+          <div className="province-city-dropdown">
+            <select value={selectedSido} onChange={handleSidoChange}>
+              <option value="">시/도 선택</option>
+              {Object.keys(regionData).map((sido) => (
+                <option key={sido} value={sido}>{sido}</option>
+              ))}
+            </select>
 
-        <div className="petsitter-location-filter-section">
-          <h3 className="petsitter-filter-title">원하는 조건을 선택하세요.</h3>
-          <div className="petsitter-location-buttons">
-            {locations.map((location) => (
-              <button
-                key={location}
-                className={`petsitter-location-button ${
-                  selectedLocation === location ? "active" : ""
-                }`}
-                onClick={() => setSelectedLocation(location)}
-              >
-                {location}
-              </button>
-            ))}
+            <select value={selectedSigungu} onChange={handleSigunguChange} disabled={!selectedSido}>
+              <option value="">시/군/구 선택</option>
+              {selectedSido &&
+                Object.keys(regionData[selectedSido]).map((sigungu) => (
+                  <option key={sigungu} value={sigungu}>{sigungu}</option>
+                ))}
+            </select>
+          </div>
+          <div className="province-city-sumbit">
+            <button className="province-city-sumbit-button"
+              onClick={handleSubmit}>펫시터 검색</button>
           </div>
         </div>
+
+        
 
         <div className="petsitter-separator"></div>
 
         <div className="petsitter-list-section">
           <div className="petsitter-list-header">
-            <h3 className="petsitter-favorite-title">추천</h3>
+            <h3 className="petsitter-favorite-title">{isSearched ? "검색결과" : "추천"}</h3>
           </div>
 
           <div className="petsitter-grid">
-            {filteredSitters.map((sitter) => (
+            {petSitters.map((sitter) => (
               <div
                 key={sitter.id}
                 className="petsitter-card"
@@ -185,38 +180,35 @@ const PetSitterReservePage = () => {
               >
                 <div className="petsitter-image-container">
                   <img
-                    src={sitter.image}
+                    src={`${host}/${sitter.img}`}
                     alt={sitter.title}
                     className="petsitter-image"
                   />
                 </div>
                 <div className="petsitter-card-content">
                   <div className="petsitter-info">
-                    <div className="petsitter-location">{sitter.location}</div>
-                    <div className="petsitter-title">{sitter.title}</div>
+                    <div className="petsitter-location">{getRegionName(sitter.location)}</div>
+                    <div className="petsitter-title">{sitter.user_name}</div>
                     <div className="petsitter-description">
-                      {sitter.description}
-                    </div>
-                    <div className="petsitter-rating">
-                      <div className="petsitter-stars">
-                        {renderStars(sitter.rating)}
-                      </div>
-                      <div className="petsitter-review-count">
-                        평점 {sitter.reviewCount}개
-                      </div>
+                      {sitter.intro}
                     </div>
                   </div>
                   <div className="petsitter-price-row">
                     <div className="petsitter-price-item">
-                      <div className="petsitter-price-label">1일당</div>
-                      <div className="petsitter-price">
-                        $ {sitter.price.toLocaleString()}
+                      <div className="petsitter-price-label">1일</div>
+                      <div className="petsitter-price">{
+                        sitter.dayCost ? (
+                          `${sitter.dayCost}원`
+                        ) : (
+                          "불가"
+                        )
+                      }
                       </div>
                     </div>
                     <div className="petsitter-price-item">
-                      <div className="petsitter-price-label">2시간</div>
+                      <div className="petsitter-price-label">1시간(소형)</div>
                       <div className="petsitter-price">
-                        $ {sitter.price.toLocaleString()}
+                        $ {sitter.smallCost}원
                       </div>
                     </div>
                   </div>

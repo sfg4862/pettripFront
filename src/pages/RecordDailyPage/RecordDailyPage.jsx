@@ -397,7 +397,7 @@ const RecordDailyPage = () => {
                               <span className="event-text">{event.time}</span>
                             )}
                             {event.type === "건강관리/체중" && event.weight && (
-                              <span className="event-text">{event.weight}</span>
+                              <span className="event-text">{event.weight} kg</span>
                             )}
                             {(event.type === "펫시터" ||
                               event.type === "미용") && (
@@ -554,7 +554,7 @@ const RecordDailyPage = () => {
                           <p className="event-time">시간: {event.time}</p>
                         )}
                         {event.weight && (
-                          <p className="event-weight">체중: {event.weight}</p>
+                          <p className="event-weight">체중: {event.weight} kg</p>
                         )}
 
                         {event.details && event.details.length > 0 && (

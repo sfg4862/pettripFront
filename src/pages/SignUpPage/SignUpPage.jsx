@@ -38,9 +38,21 @@ const SignUpPage = () => {
     e.preventDefault();
     console.log("회원가입 시도:", formData);
 
+    if(formData.password !== formData.confirmPassword){
+      alert("비밀번호와 재확인 비밀번호가 일치하지 않습니다.");
+      return;
+    }
+
+    if (!/^\d{11}$/.test(formData.phoneNumber)) {
+      alert("전화번호는 숫자 11자리여야 합니다. (- 제외)");
+      return;
+    }
+
     for (const key in formData) {
       formRef.current.set(key, formData[key]);
     }
+
+
 
 
     // 여기에 회원가입 로직 추가
@@ -159,7 +171,7 @@ const SignUpPage = () => {
           </div>
 
           <div className="form-group">
-            <label htmlFor="name">성함</label>
+            <label htmlFor="name">이름(닉네임)</label>
             <input
               type="text"
               id="name"

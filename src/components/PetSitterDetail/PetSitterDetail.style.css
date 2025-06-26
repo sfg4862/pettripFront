@@ -68,6 +68,7 @@
   border-radius: 50%;
   overflow: hidden;
   margin-right: 20px;
+  margin-bottom: 10px;
 }
 
 .petsitter-detail-profile-image img {
@@ -139,9 +140,6 @@
 }
 
 .petsitter-detail-reviews {
-  margin-bottom: 30px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
 }
 
 .petsitter-detail-star-filled,
@@ -235,9 +233,15 @@
 
 .petsitter-detail-comments {
   display: flex;
-  margin-bottom: 30px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
+  padding-top: 20px;
+  flex-direction: column;
+}
+
+.petsitter-detail-comment{
+  display: flex;
+  margin-bottom: 20px;
+  border-top: 1px solid #eee;
+  padding-top: 10px;
 }
 
 .petsitter-detail-comment-profile {
@@ -256,6 +260,12 @@
 
 .petsitter-detail-comment-content {
   flex: 1;
+}
+
+.petsitter-detail-comment-title-pettype{
+  margin-left: 2vw;
+  font-size: 0.8em;
+  color: #666;
 }
 
 .petsitter-detail-comment-title {
@@ -342,10 +352,16 @@
   justify-content: space-between;
   gap: 10px;
   margin-bottom: 15px;
+  flex-direction: column;
 }
 
 .petsitter-detail-time-column {
   flex: 1;
+}
+
+.ps-d-t{
+  display: flex;
+  flex-direction: row;
 }
 
 .petsitter-detail-time-label {
@@ -521,13 +537,63 @@
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  margin-top: 20px;
 }
 
 .petsitter-detail-reserve-button:hover {
   background-color: #e9a730;
 }
 
+.ps-rs-ta{
+  resize: none;
+  height: 20vh;
+  border-radius: 6px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.petsitter-detail-full-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.petsitter-detail-full-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.petsitter-detail-full-column label {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.petsitter-detail-full-column input[type="date"] {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+}
+
+input[type="date"] {
+  font-family: "SB 어그로", sans-serif;
+  font-size: 14px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 100%;
+  background-color: white;
+  appearance: none; /* 일부 브라우저 기본 스타일 제거 */
+}
+
+.cant-submit{
+  display: flex;
+  justify-content: center;
+}
 @media (max-width: 1024px) {
   .petsitter-detail-main {
     flex-direction: column;
@@ -538,6 +604,7 @@
     margin-bottom: 30px;
   }
 }
+
 
 @media (max-width: 768px) {
   .petsitter-detail-nav-links {
@@ -551,5 +618,13 @@
 
   .petsitter-detail-profile-image {
     margin: 0 auto 15px;
+  }
+  
+  .petsitter-detail-comment-title{
+    display: flex;
+    flex-direction: column;
+  }
+  .petsitter-detail-comment-title-pettype{
+    margin-left: unset;
   }
 }

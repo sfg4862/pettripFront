@@ -80,6 +80,7 @@
   font-weight: bold;
   font-family: "SB 어그로", sans-serif;
   cursor: pointer;
+  min-width: 60px;
 }
 
 .searchpage-recent-container {
@@ -193,4 +194,17 @@
   .searchpage-type-selector {
     gap: 20px;
   }
+}
+
+@media (max-width: 420px){
+  .searchpage-search-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 15px;
+}
+
+.searchpage-search-button{
+  width: 100%;
+}
 }

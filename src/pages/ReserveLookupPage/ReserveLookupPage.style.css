@@ -22,6 +22,12 @@
   border-bottom: 1px solid #e9ecef;
 }
 
+.petsitterPanel{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px
+}
+
 .tab-container {
   display: flex;
   background-color: white;
@@ -74,12 +80,18 @@
   transform: translateY(-2px);
 }
 
-.reservation-card.canceled {
+.reservation-card.result {
   border-color: #f8d7da;
   background-color: #fef8f8;
 }
 
-.reservation-date {
+.reservation-card.result2 {
+  border-color: #a7ffb1;
+  background-color: #f9fef8;
+}
+
+.reservation-date,
+.reservation-date-accept {
   background-color: #f8f9fa;
   color: #666;
   padding: 0.75rem 1.5rem;
@@ -88,9 +100,14 @@
   border-bottom: 1px solid #e9ecef;
 }
 
-.reservation-card.canceled .reservation-date {
+.reservation-card.result .reservation-date {
   background-color: #f8d7da;
   color: #721c24;
+}
+
+.reservation-date-accept{
+  background-color: #e8ffeb;
+  color: #258d33;
 }
 
 .reservation-content {
@@ -125,7 +142,7 @@
   font-size: 1.2rem;
   font-weight: bold;
   color: #e6a73e;
-  margin: 0 0 1rem 0;
+  margin: 0 0 0.2rem 0;
 }
 
 .reservation-time-info p {
@@ -140,9 +157,18 @@
   font-weight: 600;
 }
 
-.cancel-reason {
+.result-reason {
   color: #dc3545 !important;
   font-weight: 600 !important;
+}
+
+.result-reason-accept {
+  color: #005e00 !important;
+  font-weight: 600 !important;
+}
+
+.accept-inst{
+  font-size: 12px !important;
 }
 
 .reservation-actions {
@@ -150,6 +176,14 @@
   gap: 0.75rem;
   min-width: 200px;
   flex-shrink: 0;
+  justify-content: center;
+}
+
+.sitterResult{
+  height: 15vh !important;
+  background-color: #f9fef8 !important;
+  border: 1px solid #cacaca !important;
+  color: #cacaca !important;
 }
 
 .action-button {
@@ -165,23 +199,54 @@
 }
 
 .action-button.re-reserve {
-  background-color: #e6a73e;
-  color: white;
-}
-
-.action-button.re-reserve:hover {
-  background-color: #d4941f;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(230, 167, 62, 0.3);
-}
-
-.action-button.review {
   background-color: #f0b961;
   color: white;
 }
 
+.action-button.re-reserve:hover {
+  background-color: #ffb236;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(240, 185, 97, 0.3);
+}
+
+.postReview-btn{
+  background-color: #70b669;
+  color: white;
+}
+
+.postReview-btn:hover {
+  color: white;
+  background-color: #4d8148;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(240, 185, 97, 0.3);
+}
+
+.postReview-done{
+  border: 1px solid #666;
+  box-shadow: none;
+}
+
+.postReview-done:hover {
+  color: #666;
+  background-color: unset;
+  cursor: unset;
+}
+
+.waiting{
+  cursor: unset !important;
+  transform: unset !important;
+  box-shadow: unset !important;
+
+}
+
+
+.action-button.review {
+  background-color: #ffd797;
+  color: white;
+}
+
 .action-button.review:hover {
-  background-color: #eda645;
+  background-color: #ffc15d;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(240, 185, 97, 0.3);
 }
@@ -195,6 +260,71 @@
 .empty-state p {
   font-size: 1.2rem;
   margin: 0;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  font-family: "SB Agro", sans-serif;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 30vw;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  min-width: 300px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.modal-textarea{
+  width: 100%;
+  font-family: "SB Agro", sans-serif;
+  padding: 10px;
+  border-radius: 6px;
+  resize: none;
+}
+
+.modal-buttons button {
+  margin-left: 10px;
+}
+
+.postReview-submit{
+  width: 10vw;
+  height: 40px;
+  min-width: 100px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.pr-submit{
+  background-color: #e6a73e;
+  color: white;
+}
+
+.pr-cancel:hover{
+  background-color: rgb(219, 219, 219);
+  transition: 0.3s ease-out;
+}
+
+.pr-submit:hover{
+  background-color: #ffa202;
+  transition: 0.3s ease-out;
 }
 
 /* 반응형 디자인 */
@@ -233,7 +363,15 @@
     align-items: flex-start;
   }
 
-  .reservation-actions {
+  .reservation-actions{
+    flex-direction: row;
+    justify-content: center;
+    min-width: auto;
+    width: 100%;
+  }
+
+  .reviewbtn-container{
+    display: flex;
     flex-direction: row;
     justify-content: center;
     min-width: auto;
@@ -254,6 +392,10 @@
 
   .sitter-name {
     font-size: 1.1rem;
+  }
+
+  .sitterResult{
+    height: 5vh !important;
   }
 
   .reservation-time-info p {

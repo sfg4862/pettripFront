@@ -21,6 +21,8 @@ import SearchResultRestaurantPage from "./pages/SearchResultRestaurantPage/Searc
 import HealthCheckupPage from "./pages/HealthCheckupPage/HealthCheckupPage";
 import ProfileModifyPage from "./pages/ProfileModifyPage/ProfileModifyPage";
 import ReserveLookupPage from "./pages/ReserveLookupPage/ReserveLookupPage";
+import PetSitterMainPage from "./pages/PetSitterMainPage/PetSitterMainPage";
+import PetSitterRegisterPage from "./pages/PetSitterRegisterPage/PetSitterRegisterPage";
 
 export const AuthContext = createContext(null);
 
@@ -165,9 +167,8 @@ function App() {
             </MainLayout>
           }
         />
-
         <Route
-          path="/petsitter"
+          path="/petsitter/search"
           element={
             <MainLayout>
               <PetSitterReservePage />
@@ -175,7 +176,23 @@ function App() {
           }
         />
         <Route
-          path="/petsitter/:sitterId"
+          path="/petsitter"
+          element={
+            <MainLayout>
+              <PetSitterMainPage />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/petsitter/register"
+          element={
+            <MainLayout>
+              <PetSitterRegisterPage />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/petsitter/:id"
           element={<PetSitterDetailLayout />}
         />
 

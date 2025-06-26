@@ -86,48 +86,56 @@
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 10px 20px;
   background-color: #f2f2f2;
   box-sizing: border-box;
 }
 
-.petsitter-search-section {
-  padding: 30px 0 20px;
-}
+/* 전체 컨테이너 스타일 */
+.province-city-container {
+  display: block;
+  margin-bottom: 30px; 
+  padding: 10px;
+  border-radius: 5px;
+  }
 
-.petsitter-search-title {
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 15px;
-  color: #333;
-}
-
-.petsitter-search-form {
+/* 드롭다운 공통 스타일 */
+.province-city-container select {
   width: 100%;
-}
-
-.petsitter-search-input-container {
-  position: relative;
-  width: 100%;
-}
-
-.petsitter-search-icon {
-  position: absolute;
-  left: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #888;
-}
-
-.petsitter-search-input {
-  width: 100%;
-  padding: 15px 15px 15px 45px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  font-size: 16px;
-  outline: none;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #bbb;
+  border-radius: 6px;
   background-color: white;
-  box-sizing: border-box;
+  font-size: 15px;
+  transition: border-color 0.2s;
+
+}
+
+.province-city-container select:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.province-city-sumbit{
+  width: 100%;
+  margin-top: 10px;
+}
+
+.province-city-sumbit-button{
+  font-size: 20px;
+  width: 100%;
+  height: 6vh;
+  background-color: #ff9b3d;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.province-city-sumbit-button:hover{
+  background-color: rgb(255, 198, 145);
+  transition: 0.3s ease-out;
 }
 
 .petsitter-location-filter-section {

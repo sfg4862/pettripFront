@@ -624,8 +624,8 @@
   }
 
   .healthcheckup-upload-box {
-    width: 100%;
-    max-width: 450px;
+    width: 80vw;
+    min-width: 200px;
   }
 
   .healthcheckup-result-layout {
@@ -761,5 +761,11 @@
 
   .ai-loading-text {
     font-size: 14px;
+  }
+  .healthcheckup-upload h2{
+    font-size: 1.3rem;
+  }
+  .healthcheckup-upload-instruction{
+    font-size: 0.8rem;
   }
 }
