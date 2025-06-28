@@ -52,7 +52,7 @@ const LoginPage = () => {
 
   // 소셜 로그인 핸들러
   const handleSocialLogin = (provider) => {
-    console.log(`${provider}로 로그인 시도`);
+    window.location.href = "http://localhost:5000/kakao_login";
     // 소셜 로그인 로직 추가
   };
 

@@ -66,141 +66,7 @@ function HealthCheckupPage() {
     { value: 5, label: "매우 나쁨", emoji: "😞", color: "#F44336" },
   ];
 
-  const diagnosisExamples = [
-    {
-      diagnosisName: "결막염",
-      description:
-        "결막염은 결막에 염증이 생긴 상태로, 눈곱 증가와 충혈 등의 증상이 나타납니다.",
-      defaultSeverity: 2,
-      detailedResult: {
-        symptoms: ["눈곱 증가", "결막 충혈", "눈물 분비", "눈 가려움"],
-        causes: ["세균 감염", "알레르기", "이물질", "건조"],
-        treatment: ["항생제 안약", "보호자 관리", "환경 개선", "정기 검진"],
-      },
-    },
-    {
-      diagnosisName: "궤양성각막질환",
-      description: "각막에 궤양이 생기는 심각한 상태로 빠른 처치가 필요합니다.",
-      defaultSeverity: 5,
-      detailedResult: {
-        symptoms: ["눈 통증", "시력 저하", "각막 혼탁", "눈물 과다"],
-        causes: ["외상", "감염", "화학물질", "기계적 자극"],
-        treatment: ["응급 수의사 치료", "항생제", "보호렌즈", "수술"],
-      },
-    },
-    {
-      diagnosisName: "백내장",
-      description: "백내장은 수정체가 혼탁해져 시야가 흐려지는 질환입니다.",
-      defaultSeverity: 2,
-      detailedResult: {
-        symptoms: [
-          "시야 흐림",
-          "야간 시력 저하",
-          "빛 번짐",
-          "색상 구분 어려움",
-        ],
-        causes: ["노화", "유전", "당뇨병", "외상"],
-        treatment: ["정기 검진", "수술", "영양 관리", "보조기구 사용"],
-      },
-    },
-    {
-      diagnosisName: "비궤양성각막질환",
-      description:
-        "비궤양성 각막질환은 각막에 상처 없이 염증이나 혼탁이 생기는 상태입니다.",
-      defaultSeverity: 3,
-      detailedResult: {
-        symptoms: ["눈물", "결막 충혈", "시력 저하", "가벼운 통증"],
-        causes: ["건조", "이물감", "염증", "피로"],
-        treatment: ["인공눈물", "항염제", "환경 조절", "보호안대"],
-      },
-    },
-    {
-      diagnosisName: "색소침착성각막염",
-      description:
-        "각막에 검은 색소가 침착되어 시야에 영향을 줄 수 있는 질환입니다.",
-      defaultSeverity: 4,
-      detailedResult: {
-        symptoms: ["시야 흐림", "눈 흑변", "시력 감소", "빛 민감"],
-        causes: ["만성 염증", "자외선", "눈물막 이상", "유전"],
-        treatment: ["항염 치료", "UV 차단", "보조 렌즈", "정기 검진"],
-      },
-    },
-    {
-      diagnosisName: "안검내반증",
-      description:
-        "눈꺼풀이 안쪽으로 말려 속눈썹이 각막을 자극하는 질환입니다.",
-      defaultSeverity: 4,
-      detailedResult: {
-        symptoms: ["눈 가려움", "눈물", "각막 자극", "결막염 동반"],
-        causes: ["유전", "외상", "노화", "피부 문제"],
-        treatment: ["수술", "인공눈물", "보호 렌즈", "약물 치료"],
-      },
-    },
-    {
-      diagnosisName: "안검염",
-      description:
-        "눈꺼풀 가장자리에 염증이 생기는 질환으로 가려움과 통증이 동반됩니다.",
-      defaultSeverity: 3,
-      detailedResult: {
-        symptoms: ["눈꺼풀 부종", "통증", "분비물", "피부 껍질"],
-        causes: ["세균 감염", "피지선 문제", "알레르기", "기생충"],
-        treatment: ["청결 유지", "항생제 연고", "온찜질", "진단 후 치료"],
-      },
-    },
-    {
-      diagnosisName: "안검종양",
-      description:
-        "눈꺼풀에 발생하는 종양으로 양성 및 악성 모두 존재할 수 있습니다.",
-      defaultSeverity: 5,
-      detailedResult: {
-        symptoms: ["덩어리 발생", "출혈", "눈꺼풀 변형", "통증"],
-        causes: ["유전", "자외선", "노화", "염증"],
-        treatment: ["조직 검사", "외과적 제거", "재발 모니터링", "약물 보조"],
-      },
-    },
-    {
-      diagnosisName: "유루증",
-      description:
-        "눈물이 과도하게 흐르는 증상으로 눈 밑 피부염을 유발할 수 있습니다.",
-      defaultSeverity: 2,
-      detailedResult: {
-        symptoms: ["눈물 흘림", "눈 주변 착색", "피부 자극", "냄새"],
-        causes: ["눈물길 폐쇄", "과도한 분비", "이물질", "눈꺼풀 문제"],
-        treatment: ["눈물길 세척", "항생제", "수술", "피부 관리"],
-      },
-    },
-    {
-      diagnosisName: "핵경화",
-      description:
-        "노령 동물에게 흔히 나타나는 수정체의 단단해지는 자연스러운 변화입니다.",
-      defaultSeverity: 1,
-      detailedResult: {
-        symptoms: ["시야 흐림", "푸르스름한 눈동자", "빛 번짐", "노안"],
-        causes: ["노화"],
-        treatment: [
-          "정기 검진",
-          "영양 관리",
-          "수술은 필요 없음",
-          "생활 환경 조절",
-        ],
-      },
-    },
-    {
-      diagnosisName: "정상",
-      description: "이상 징후가 보이지 않으며 눈 건강이 양호한 상태입니다.",
-      defaultSeverity: 1,
-      detailedResult: {
-        symptoms: ["정상 시야", "통증 없음", "충혈 없음", "분비물 없음"],
-        causes: ["건강한 눈 상태"],
-        treatment: [
-          "정기 검진 유지",
-          "청결 유지",
-          "균형 잡힌 식사",
-          "환경 관리",
-        ],
-      },
-    },
-  ];
+  const diagnosisExamples = [];
 
   const handleFiles = useCallback(
     (files) => {
@@ -333,7 +199,6 @@ function HealthCheckupPage() {
   const handleAnalyzeClick = async () => {
     if (uploadedImage && petType && symptom) {
       setIsLoading(true);
-
       try {
         const formData = new FormData();
         const response = await fetch(uploadedImage);
@@ -351,38 +216,46 @@ function HealthCheckupPage() {
         const result = await res.json();
         const diagnosisName = result?.[0]?.predicted_class;
 
-        const matched = diagnosisExamples.find(
-          (item) => item.diagnosisName === diagnosisName
-        );
-
-        if (matched) {
+        // 새 로직: diagnosisName이 있으면 바로 챗봇 요청 및 데이터 설정
+        if (diagnosisName) {
           const now = new Date();
           const timeString = `오후 ${now.getHours()}:${now
             .getMinutes()
             .toString()
             .padStart(2, "0")}`;
-          const severity = matched.defaultSeverity;
-          const severityLabel =
-            moodOptions.find((m) => m.value === severity)?.label || "보통";
+
+          let chatbotData = {};
+          try {
+            const chatbotRes = await fetch(`${host}/chatbot/ask`, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ message: diagnosisName }),
+            });
+
+            if (chatbotRes.ok) {
+              chatbotData = await chatbotRes.json();
+            } else {
+              console.error("챗봇 응답 오류:", await chatbotRes.text());
+            }
+          } catch (e) {
+            console.error("챗봇 요청 실패:", e);
+          }
 
           setDiagnosisData({
-            diagnosisName: matched.diagnosisName,
-            description: matched.description,
-            severity: severityLabel,
-            recommendations:
-              severity >= 4
-                ? "빠른 시일 내에 동물 병원 방문을 권장드립니다."
-                : "정기적인 관찰이 필요합니다.",
+            diagnosisName: diagnosisName,
+            description: chatbotData.description || "",
+            severity: "보통",
+            recommendations: "정기적인 관찰이 필요합니다.",
             records: [
               {
-                name: matched.diagnosisName,
-                status: severityLabel,
+                name: diagnosisName,
+                status: "보통",
                 time: timeString,
-                severity: severity,
+                severity: 3,
               },
               {
                 name: petType || "반려동물",
-                status: severityLabel,
+                status: "보통",
                 time: `오후 ${now.getHours()}:${(
                   now.getMinutes() +
                   Math.floor(Math.random() * 10) +
@@ -390,15 +263,19 @@ function HealthCheckupPage() {
                 )
                   .toString()
                   .padStart(2, "0")}`,
-                severity: severity,
+                severity: 3,
               },
             ],
-            detailedResult: matched.detailedResult,
+            detailedResult: chatbotData.mainSymptoms
+              ? {
+                  symptoms: chatbotData.mainSymptoms,
+                  causes: chatbotData.causes,
+                  treatment: chatbotData.recommendedTreatment,
+                }
+              : undefined,
           });
-          setSelectedMood(severity);
+          setSelectedMood(3);
           setActiveTab("result");
-        } else {
-          alert("백엔드 진단 결과가 사전에 등록된 예시와 일치하지 않습니다.");
         }
       } catch (err) {
         console.error(err);
@@ -561,11 +438,13 @@ function HealthCheckupPage() {
                   </span>
                   ' 징후가 있는 것 같아요.
                 </p>
+                {/* Inline disease description right under the title/message */}
+                {diagnosisData?.description && (
+                  <div className="healthcheckup-description-text" style={{ margin: "1rem 0" }}>
+                    <p>{diagnosisData.description}</p>
+                  </div>
+                )}
                 <hr className="healthcheckup-divider" />
-              </div>
-
-              <div className="healthcheckup-result-description">
-                <p>{diagnosisData.description}</p>
               </div>
 
               <div className="healthcheckup-record-section">
@@ -585,6 +464,7 @@ function HealthCheckupPage() {
                   ))}
                 </div>
               </div>
+
 
               <div className="healthcheckup-detailed-info">
                 <div className="healthcheckup-info-card">
@@ -629,6 +509,7 @@ function HealthCheckupPage() {
                   </ul>
                 </div>
               </div>
+
 
               <div className="healthcheckup-action-buttons">
                 <button className="healthcheckup-primary-button">
