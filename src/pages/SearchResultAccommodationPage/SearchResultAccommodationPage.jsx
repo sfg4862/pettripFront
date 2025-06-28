@@ -153,9 +153,9 @@ function SearchResultAccommodationPage() {
           </h2>
         </div>
 
-        <div className="searchresult-content">
+        <div className="searchresult-content">{/*
           <div className="searchresult-sidebar">
-            <div className="searchresult-filter">
+            {/*<div className="searchresult-filter">
               <h3 className="searchresult-filter-title">필터</h3>
               <div className="searchresult-filter-group">
                 <label className="searchresult-filter-label">
@@ -250,7 +250,7 @@ function SearchResultAccommodationPage() {
               </button>
             </div>
           </div>
-
+*/}
           <div className="searchresult-list">
             {currentItems.length > 0 ? (
               <>
@@ -274,7 +274,7 @@ function SearchResultAccommodationPage() {
                         <h3 className="searchresult-item-name">
                           {accommodation.name}
                         </h3>
-                        <div className="searchresult-item-rating">
+                        <div className="searchresult-item-rating">{/*
                           <span className="searchresult-item-stars">⭐</span>
                           <span className="searchresult-item-rating-score">
                             {accommodation.rating}
@@ -282,28 +282,16 @@ function SearchResultAccommodationPage() {
                           <span className="searchresult-item-review-count">
                             ({accommodation.reviewCount})
                           </span>
+                          */}
                           <span className="searchresult-item-location">
-                            {" "}
-                            · {accommodation.location}
+                            {accommodation.location}
                           </span>
                         </div>
                         <p className="searchresult-item-address">
                           {accommodation.address}
                         </p>
                         <p className="searchresult-item-type">
-                          {accommodation.type} ·
-                          {accommodation.petType.map((type, idx) => (
-                            <span
-                              key={idx}
-                              className="searchresult-item-pet-type"
-                            >
-                              {idx > 0 ? ", " : " "}
-                              {type}
-                            </span>
-                          ))}
-                        </p>
-                        <p className="searchresult-item-price">
-                          ₩{accommodation.price.toLocaleString()}원 / 1박
+                          {accommodation.type}
                         </p>
                       </div>
                     </div>

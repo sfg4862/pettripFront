@@ -415,7 +415,7 @@ const PetSitterDetail = () => {
                     }
                   />
                 </div>
-                {sessionStorage.getItem('user_id') != id ? (
+                {sessionStorage.getItem('user_id') != petSitter.userId ? (
                   <button className="petsitter-detail-reserve-button" onClick={handleSubmit}>
                   예약 하기
                   </button>
