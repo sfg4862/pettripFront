@@ -54,6 +54,8 @@ function ProfileModifyPage() {
             birthDay: day,
             user_profil: data.user_profil ? data.user_profil : ""
           }));
+          if(data.user_profil)setPreviewImage(`${host}/${data.user_profil}`)
+
         })
         .catch((e) => {
           alert("회원정보 수정에 실패하였습니다.");
@@ -182,7 +184,7 @@ function ProfileModifyPage() {
           sessionStorage.setItem("user_nickname", profileData.nickname);
           sessionStorage.setItem("user_profile_image", r.data.user_profil);
         })
-        .catch((e) => { throw (e.response.data.message) })
+        .catch((e) => { throw (`${e.response.data.message ? e.response.data.message : e}`) })
 
       setMessage("회원 정보가 성공적으로 업데이트되었습니다.");
       setMessageType("success");
@@ -224,7 +226,7 @@ function ProfileModifyPage() {
                 {!profileData.user_profil ? (
                   <img src={previewImage} alt="Profile" className="profileImage forinput" />
                 ) : (
-                  <img src={`${host}/${profileData.user_profil}`} alt="Profile" className="profileImage forinput" />
+                  <img src={previewImage} alt="Profile" className="profileImage forinput" />
                 )}
               </label>
               <input

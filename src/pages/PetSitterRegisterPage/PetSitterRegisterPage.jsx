@@ -87,11 +87,11 @@ const PetSitterRegisterPage = () => {
         })
             .then(r => {
                 alert('펫시터가 정상적으로 등록되었습니다!');
+                navigate('/reservations');
             })
             .catch(e => {
                 alert('잘못된 요청입니다!');
             })
-
     }
 
     const handleImageUpload = (e) => {

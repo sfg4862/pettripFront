@@ -201,7 +201,7 @@ const CommunityPage = () => {
                 className="post-card"
                 onClick={() => handlePostClick(post.id)}
               >
-                <div className="post-image-container">
+                <div className="post-image-container post-image-con2">
                   {post.isPrivate ? (
                     <div className="private-post">
                       <img src={lockIcon} alt="비밀글" className="lock-icon" />

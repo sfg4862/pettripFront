@@ -141,11 +141,8 @@ const PetSitterDetail = () => {
       <div className="petsitter-detail-content">
         <div className="petsitter-detail-gallery">
           <div className="petsitter-detail-gallery-full">
-            <img src={`${host}/${petSitter.img}`} alt="Pet sitter's home" />
-          </div>
-          <button className="petsitter-detail-gallery-more">
-            더보기 사진 보기
-          </button>
+            <img src={ petSitter.img ? `${host}/${petSitter.img}` : url.defaultPostUrl} alt="Pet sitter's home" />
+          </div>  
         </div>
 
         <div className="petsitter-detail-main">

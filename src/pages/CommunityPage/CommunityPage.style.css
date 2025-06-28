@@ -378,6 +378,10 @@ body {
   background: linear-gradient(135deg, #fff8f0 0%, #fef5e7 100%);
 }
 
+.post-image-container.post-image-con2{
+  height: 200px !important;
+}
+
 .post-image-container::after {
   content: "";
   position: absolute;

@@ -4,6 +4,7 @@ import regionData from "../../korea_region/reference_json.json";
 import reverseRegionData from "../../korea_region/reverse_json.json"
 import "./PetSitterReservePage.style.css";
 import axios from 'axios';
+import url from '../../defImages'
 import host from '../../host';
 
 
@@ -180,7 +181,7 @@ const PetSitterReservePage = () => {
               >
                 <div className="petsitter-image-container">
                   <img
-                    src={`${host}/${sitter.img}`}
+                    src={ sitter.img ? `${host}/${sitter.img}` : url.defaultPostUrl}
                     alt={sitter.title}
                     className="petsitter-image"
                   />
