@@ -220,13 +220,13 @@
 }
 
 .form-actions {
+  width: 100%;
   display: flex;
   justify-content: center;
-  padding-top: 2.5rem;
-  border-top: 1px solid #e9ecef;
 }
 
-.submit-button {
+.submit-button, .change-request-btn{
+  width: 100%;
   padding: 1.2rem 4rem;
   background-color: #e6a73e;
   color: white;
@@ -252,6 +252,11 @@
   box-shadow: none;
 }
 
+.profileImage.forinput{
+    border-radius: 10%;
+    width: 150px;
+    height: 150px;
+  }
 /* 반응형 디자인 */
 @media (max-width: 768px) {
   .profile-modify-page {
@@ -287,6 +292,10 @@
     overflow: hidden;
   }
 
+  .pic-label{
+    font-size: 30px;
+  }
+
   .label-cell {
     background-color: #e6a73e;
     color: white;
@@ -303,7 +312,7 @@
     min-width: auto;
     border: none;
   }
-
+  
   .date-inputs {
     flex-direction: column;
   }

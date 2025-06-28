@@ -248,17 +248,6 @@ const SignUpPage = () => {
             />
           </div>
 
-          <div className="form-group">
-            <label htmlFor="terms">주소</label>
-            <input
-              type="text"
-              id="terms"
-              className="form-input terms-input"
-              readOnly
-              value=""
-            />
-          </div>
-
           <button type="submit" className="signup-button">
             회원가입
           </button>
