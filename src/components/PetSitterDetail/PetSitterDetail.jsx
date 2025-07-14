@@ -198,7 +198,7 @@ const PetSitterDetail = () => {
                     <div className="petsitter-detail-comment-content">
                       <h3 className="petsitter-detail-comment-title">
                         <span>{review.user_name} 님의 후기</span>
-                        <span className="petsitter-detail-comment-title-pettype">{formatKoreanDate(review.reserveDate)}·{review.petType}·{review.isTimeOrDay}</span>
+                        <span className="petsitter-detail-comment-title-pettype">{review.reserveDate ? formatKoreanDate(review.reserveDate) : formatKoreanDate(review.startDate)}·{review.petType}·{review.isTimeOrDay}</span>
                       </h3>
                       {review.content}
                     </div>
