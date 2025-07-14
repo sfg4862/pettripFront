@@ -13,6 +13,7 @@ function SearchResultAccommodationPage() {
   const [isLoading, setLoading] = useState(true);
 
   //페이지네이션 수정
+  const [totalCount,setTotalCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const itemsPerPage = 10;
@@ -38,6 +39,7 @@ function SearchResultAccommodationPage() {
           setFilteredAccommodations(r.data.items);
           setTotalPages(r.data.totalPages);
           setLoading(false);
+          setTotalCount(r.data.totalCount);
         })
         .catch(e => {
           alert('잘못된 요청입니다.');
@@ -70,7 +72,7 @@ function SearchResultAccommodationPage() {
           <div className="searchresult-header">
             <h2 className="searchresult-title">
               <span className="searchresult-highlight">'{decodeURIComponent(location || "")}'</span>{" "}
-              검색 결과 {filteredAccommodations.length}개
+              검색 결과 {totalCount}개
             </h2>
           </div>
 

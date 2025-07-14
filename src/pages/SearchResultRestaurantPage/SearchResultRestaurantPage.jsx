@@ -14,6 +14,7 @@ function SearchResultRestaurantPage() {
   const [restaurants, setRestaurants] = useState([]);
   const [isLoading, setLoading] = useState(true);
 
+  const [totalCount, setTotalCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const itemsPerPage = 5;
@@ -40,6 +41,7 @@ function SearchResultRestaurantPage() {
         .then(r => {
           setRestaurants(r.data.items);
           setTotalPages(r.data.totalPages);
+          setTotalCount(r.data.totalCount);
           setLoading(false);
         })
         .catch(e => {
@@ -97,27 +99,11 @@ function SearchResultRestaurantPage() {
         <div className="searchresult-container">
           <div className="searchresult-header">
             <h2 className="searchresult-title">
-              <span className="searchresult-highlight">'{area}'</span> 검색 결과 {filteredRestaurants.length}개
+              <span className="searchresult-highlight">'{area}'</span> 검색 결과 {totalCount}개
             </h2>
           </div>
 
           <div className="searchresult-content">
-            <div className="searchresult-sidebar">
-              <div className="searchresult-filter">
-                <h3 className="searchresult-filter-title">필터</h3>
-                {["한식", "중식", "일식", "양식", "카페", "오마카세"].map((type) => (
-                    <label key={type} className="searchresult-filter-label">
-                      <input
-                          type="checkbox"
-                          checked={filters.foodType.includes(type)}
-                          onChange={() => handleFilterChange("foodType", type)}
-                      />
-                      {type}
-                    </label>
-                ))}
-                <button className="searchresult-filter-button" onClick={() => setCurrentPage(1)}>필터 적용</button>
-              </div>
-            </div>
 
             <div className="searchresult-list">
               {isLoading ? (
@@ -136,10 +122,7 @@ function SearchResultRestaurantPage() {
                           <div className="searchresult-item-info">
                             <h3 className="searchresult-item-name">{restaurant.name}</h3>
                             <div className="searchresult-item-rating">
-                              <span className="searchresult-item-stars">⭐</span>
-                              <span className="searchresult-item-rating-score">{restaurant.rating}</span>
-                              <span className="searchresult-item-review-count">({restaurant.reviewCount})</span>
-                              <span className="searchresult-item-location"> · {restaurant.location}</span>
+                              <span className="searchresult-item-location">{restaurant.location}</span>
                             </div>
                             <p className="searchresult-item-address">{restaurant.address}</p>
                             <p className="searchresult-item-type">{restaurant.type}</p>
