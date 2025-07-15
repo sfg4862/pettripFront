@@ -20,12 +20,13 @@ const LoginPage = () => {
   const handleSubmit = (e) => {
     if (e) e.preventDefault();
     console.log("로그인 시도:", { email, password });
-    console.log({email,password});
+    console.log({ email, password });
     // 여기에 로그인 로직 추가
-    const r = axios.post(`${host}/login`,{email, password},{
+    const r = axios.post(`${host}/login`, { email, password }, {
       headers: {
-        "Content-Type":"application/json"
-      }})
+        "Content-Type": "application/json"
+      }
+    })
       .then(r => {
         console.log(r);
         sessionStorage.setItem('user_id', r.data.data.user_id);
@@ -36,7 +37,7 @@ const LoginPage = () => {
       .catch(e => {
         alert('계정 이름 또는 비밀번호가 잘못되었습니니다.');
       })
-        
+
 
   };
 
@@ -84,6 +85,11 @@ const LoginPage = () => {
               placeholder="이메일을 입력해주세요."
               value={email}
               onChange={handleEmailChange}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSubmit(e);
+                }
+              }}
               required
             />
           </div>
@@ -97,6 +103,11 @@ const LoginPage = () => {
               placeholder="비밀번호를 입력해주세요."
               value={password}
               onChange={handlePasswordChange}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  handleSubmit(e);
+                }
+              }}
               required
             />
           </div>
